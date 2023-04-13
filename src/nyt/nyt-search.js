@@ -1,7 +1,15 @@
 import React, {useState} from "react";
+import {textSearch} from "./nyt-service";
 
 function NytSearchScreen() {
     const [search, setSearch] = useState("");
+    const [results, setResults] = useState([]);
+    const searchNyt = async() => {
+        const response = await textSearch(search);
+        setResults(response);
+        console.log(response);
+;
+    }
     return (
         <div>
             <h1>NYT Search Screen</h1>
@@ -11,7 +19,7 @@ function NytSearchScreen() {
                 value={search}
                 onChange={(e)=> setSearch(e.target.value)}
             />
-            <button className="btn btn-primary">Search</button>
+            <button onClick={searchNyt} className="btn btn-primary">Search</button>
         </div>
     )
 }
