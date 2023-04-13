@@ -1,6 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
 const SearchComponent = () => {
-
     return (
         <div>
             <h1>Search</h1>
