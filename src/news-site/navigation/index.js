@@ -10,6 +10,7 @@ const NavigationSidebar = () => {
         <Link to="/news/home" className="list-group-item">Home</Link>
         <Link to="/news/profile" className="list-group-item">Profile</Link>
         <Link to="/news/search" className="list-group-item">Search</Link>
+        <Link to="/nyt" className="list-group-item">NYT</Link>
 
     </div>
 );
