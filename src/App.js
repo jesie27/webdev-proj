@@ -1,9 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-
+import News from "./news-site"
+import {BrowserRouter} from "react-router-dom";
+import {Routes, Route} from "react-router";
 function App() {
   return (
-      <h1>Hello World!</h1>
+      <BrowserRouter>
+      <div className="container">
+          <Routes>
+              <Route index element={<News/>}></Route>
+          </Routes>
+      </div>
+      </BrowserRouter>
 
   );
 }
