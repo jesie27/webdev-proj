@@ -20,6 +20,24 @@ function NytSearchScreen() {
                 onChange={(e)=> setSearch(e.target.value)}
             />
             <button onClick={searchNyt} className="btn btn-primary">Search</button>
+            <div className="table-responsive">
+                <table className="table">
+                    <tbody>
+                        <tr>
+                            {results.results && results.results.map((results) => (
+                            <td>
+                                <h3>{results.id}</h3>
+                            </td>
+                            ))}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <pre>
+                {JSON.stringify(results, null, 2)}
+            </pre>
         </div>
     )
 }
