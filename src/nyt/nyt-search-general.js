@@ -27,11 +27,14 @@ function NytGeneralScreen() {
             <ul className="list-group mt-3">
                 {results.docs && results.docs.map((docs) => (
                     <li className="list-group-item">
-                        <Link to={docs.web_url}><h5>{docs.headline.main}</h5>
-                        </Link>
-                    <div className="mb-2">{docs.abstract}</div>
-                        <img src="${docs.   multimedia[0].url}"/>
+                        <div>{docs.pub_date}</div>
 
+                        <Link to={docs.web_url}><h3>{docs.headline.main}</h3>
+                        </Link>
+
+                        <div>{docs.byline.original}</div>
+
+                        <div className="mb-2">{docs.abstract}</div>
                     </li>))}
 
             </ul>
