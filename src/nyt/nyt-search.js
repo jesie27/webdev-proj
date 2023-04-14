@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {textSearch} from "./nyt-service";
+import {Link} from "react-router-dom";
 
 function NytSearchScreen() {
     const [search, setSearch] = useState("");
@@ -13,6 +14,8 @@ function NytSearchScreen() {
     return (
         <div>
             <h1>NYT Search Screen</h1>
+            <div>Search for the most popular NYT articles for a specified period of time. Only select 1, 7, or 30 days</div>
+
             <input
                 className="form-control w-50"
                 type="text"
@@ -21,22 +24,26 @@ function NytSearchScreen() {
             />
             <button onClick={searchNyt} className="btn btn-primary">Search</button>
             <div className="table-responsive">
-                <table className="table">
+                <table className="table border-3">
                     <tbody>
-                        <tr>
+                        <tc>
                             {results.results && results.results.map((results) => (
+
                             <td>
-                                <h3>{results.id}</h3>
+                                <div>{results.published_date}</div>
+
+                                <Link to={results.url}><h3>{results.title}</h3></Link>
+                                {results.abstract}
                             </td>
+
                             ))}
-                        </tr>
+                        </tc>
                     </tbody>
                 </table>
             </div>
 
 
-            <pre>
-                {JSON.stringify(results, null, 2)}
+            <pre>{JSON.stringify(results, null, 2)}
             </pre>
         </div>
     )
