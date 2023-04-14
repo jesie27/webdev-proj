@@ -35,11 +35,11 @@ function NytGeneralScreen() {
                         <div>{docs.byline.original}</div>
 
                         <div className="mb-2">{docs.abstract}</div>
+                        <div><img src="${docs.multimedia[0].url}"/></div>
+                        <div>${docs.multimedia[0].url}</div>
                     </li>))}
 
             </ul>
-
-
 
             <pre>{JSON.stringify(results, null, 2)}
             </pre>

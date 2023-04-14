@@ -34,8 +34,7 @@ function NytSearchScreen() {
                 <Link to={`/nyt/article/${results.id}`}>
                     <div className="mb-2">{results.abstract}</div>
                 </Link>
-                <img src="${results.media['media-metadata'][2].url}"/>
-                <img src="${results.media.media-metadata[0].url}"/>
+                    <img src="{results.media.media-metadata.url}"/>
 
             </li>))}
             </ul>
@@ -45,6 +44,7 @@ function NytSearchScreen() {
             </pre>
         </div>
     )
+
 }
 export default NytSearchScreen;
 //{results.media.["media-metadata"][0].url}
