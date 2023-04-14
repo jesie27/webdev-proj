@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import {textSearch} from "./nyt-service";
+import {searchMostShared} from "./nyt-service";
 import {Link} from "react-router-dom";
 
 function NytSearchScreen() {
     const [search, setSearch] = useState("");
     const [results, setResults] = useState([]);
     const searchNyt = async() => {
-        const response = await textSearch(search);
+        const response = await searchMostShared(search);
         setResults(response);
         console.log(response);
 
@@ -27,13 +27,16 @@ function NytSearchScreen() {
 
             <ul className="list-group mt-3">
                 {results.results && results.results.map((results) => (
-            <li className="list-group-item">
+            <li className="list-group-item"  key={results.id}>
                 <div className="mt-2">{results.published_date}</div>
                 <Link to={results.url}><h3>{results.title}</h3></Link>
                 <div>{results.byline}</div>
                 <Link to={`/nyt/article/${results.id}`}>
                     <div className="mb-2">{results.abstract}</div>
                 </Link>
+                <img src="${results.media['media-metadata'][2].url}"/>
+                <img src="${results.media.media-metadata[0].url}"/>
+
             </li>))}
             </ul>
 

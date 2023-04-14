@@ -1,9 +1,7 @@
-import {Link} from "react-router-dom";
 import NavigationSidebar from "../news-site/navigation";
 import {Route, Routes} from "react-router";
-import HomeComponent from "../news-site/home";
 import ProfileComponent from "../news-site/profile";
-import NytSearchScreen from "./nyt-search";
+import NytSearchScreen from "./nyt-search-popular";
 
 function NytScreen() {
     return (

@@ -5,8 +5,10 @@ import {Routes, Route} from "react-router";
 
 import HomeComponent from "./news-site/home";
 import NytScreen from "./nyt";
-import NytSearchScreen from "./nyt/nyt-search";
+import NytSearchScreen from "./nyt/nyt-search-popular";
 import NytArticleDetailScreen from "./nyt/nyt-article";
+import nytSearchGeneral from "./nyt/nyt-search-general";
+import NytGeneralScreen from "./nyt/nyt-search-general";
 function App() {
   return (
       <BrowserRouter>
@@ -16,6 +18,7 @@ function App() {
               <Route path="/nyt" element={<NytScreen/>}></Route>
               <Route path="/nyt/search" element={<NytSearchScreen/>}></Route>
               <Route path="/nyt/article/:id" element={<NytArticleDetailScreen/>}></Route>
+              <Route path="/nyt/general-search" element={<NytGeneralScreen/>}></Route>
 
           </Routes>
       </div>
