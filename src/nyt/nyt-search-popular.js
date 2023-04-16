@@ -1,10 +1,11 @@
 import React, {useState} from "react";
-import {searchMostShared} from "./nyt-service";
+import {searchMostShared, searchMostSharedPics} from "./nyt-service";
 import {Link} from "react-router-dom";
 
 function NytSearchPopularScreen() {
     const [search, setSearch] = useState("");
     const [results, setResults] = useState([]);
+    const [pics, setPics] = useState([]);
     const searchNyt = async() => {
         const response = await searchMostShared(search);
         setResults(response);
@@ -12,6 +13,7 @@ function NytSearchPopularScreen() {
 ;
     }
     console.log(results)
+
 
     return (
         <div>
@@ -35,8 +37,9 @@ function NytSearchPopularScreen() {
                 <Link to={`/nyt/popular-article/${results.id}`}>
                     <div className="mb-2">{results.abstract}</div>
                 </Link>
-                    <img src=""/>
-            </li>))}
+                    <img src="{results.media['media-metadata'][0].url}"/>
+
+        </li>))}
             </ul>
 
 
