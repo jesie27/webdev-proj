@@ -23,7 +23,7 @@ function NytPopularDetailScreen() {
             <h1>nyt popular article detail screen {id}</h1>
             <h2></h2>
 
-
+//
         </div>
     )
 }
