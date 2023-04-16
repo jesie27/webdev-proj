@@ -15,15 +15,6 @@ function App() {
       <div className="container">
           <Routes>
               <Route index path="/*" element={<News/>}></Route>
-              <Route path="/nyt" element={<NytScreen/>}></Route>
-              <Route path="/nyt/search" element={<NytSearchScreen/>}></Route>
-              <Route path="/nyt/popular-article/:id" element={<NytPopularDetailScreen/>}></Route>
-              <Route path="/nyt/general-article/:headline" element={<NytGeneralDetail/>}></Route>
-
-              <Route path="/nyt/popular-search" element={<NytSearchPopular/>}></Route>
-
-              <Route path="/nyt/general-search" element={<NytGeneralScreen/>}></Route>
-
           </Routes>
       </div>
       </BrowserRouter>

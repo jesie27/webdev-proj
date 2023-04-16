@@ -9,8 +9,8 @@ const NavigationSidebar = () => {
 
         <Link to="/news/home" className="list-group-item">Home</Link>
         <Link to="/news/profile" className="list-group-item">Profile</Link>
-        <Link to="/nyt/popular-search" className="list-group-item">NYT Popular Search</Link>
-        <Link to="/nyt/general-search" className="list-group-item">NYT General Search</Link>
+        <Link to="/news/nyt/general-search" className="list-group-item">NYT General Search</Link>
+        <Link to="/news/nyt/popular-search" className="list-group-item">NYT Most Popular Search</Link>
 
     </div>
 );

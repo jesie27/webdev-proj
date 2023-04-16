@@ -10,13 +10,13 @@ const HomeComponent = () => {
         ;
     }
     const homeResults = searchNyt();
-    console.log(results)
-
 
     return (
         <div>
             <h1>Home</h1>
-            <h2>homeResults</h2>
+            <h2></h2>
+            <pre>{JSON.stringify(results, null, 2)}</pre>
+            <h2>{}</h2>
         </div>
     );
 }
