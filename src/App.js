@@ -3,12 +3,12 @@ import News from "./news-site"
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route} from "react-router";
 
-import HomeComponent from "./news-site/home";
 import NytScreen from "./nyt";
 import NytSearchScreen from "./nyt/nyt-search-popular";
-import NytArticleDetailScreen from "./nyt/nyt-article";
-import nytSearchGeneral from "./nyt/nyt-search-general";
+import NytPopularDetailScreen from "./nyt/nyt-popular-detail";
 import NytGeneralScreen from "./nyt/nyt-search-general";
+import NytSearchPopular from "./nyt/nyt-search-popular";
+import NytGeneralDetail from "./nyt/nyt-general-detail";
 function App() {
   return (
       <BrowserRouter>
@@ -17,7 +17,11 @@ function App() {
               <Route index path="/*" element={<News/>}></Route>
               <Route path="/nyt" element={<NytScreen/>}></Route>
               <Route path="/nyt/search" element={<NytSearchScreen/>}></Route>
-              <Route path="/nyt/article/:id" element={<NytArticleDetailScreen/>}></Route>
+              <Route path="/nyt/popular-article/:id" element={<NytPopularDetailScreen/>}></Route>
+              <Route path="/nyt/general-article/:headline" element={<NytGeneralDetail/>}></Route>
+
+              <Route path="/nyt/popular-search" element={<NytSearchPopular/>}></Route>
+
               <Route path="/nyt/general-search" element={<NytGeneralScreen/>}></Route>
 
           </Routes>

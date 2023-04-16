@@ -1,7 +1,8 @@
 import NavigationSidebar from "../news-site/navigation";
 import {Route, Routes} from "react-router";
 import ProfileComponent from "../news-site/profile";
-import NytSearchScreen from "./nyt-search-popular";
+import NytSearchPopularScreen from "./nyt-search-popular";
+import NytGeneralScreen from "./nyt-search-general";
 
 function NytScreen() {
     return (
@@ -15,7 +16,9 @@ function NytScreen() {
                 <a href="/nyt/search"><button className="btn btn-primary">Search</button></a>
                 <Routes>
                     <Route path="/nyt" element={<NytScreen/>}>Home</Route>
-                    <Route path="/nyt/search" element={<NytSearchScreen/>}>NYT Search</Route>
+                    <Route path="/nyt/popular-search" element={<NytSearchPopularScreen/>}>NYT Search</Route>
+                    <Route path="/nyt/general-search" element={<NytGeneralScreen/>}>NYT Search</Route>
+
                 </Routes>
             </div>
 

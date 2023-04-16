@@ -2,16 +2,17 @@ import React, {useState} from "react";
 import {searchMostShared} from "./nyt-service";
 import {Link} from "react-router-dom";
 
-function NytSearchScreen() {
+function NytSearchPopularScreen() {
     const [search, setSearch] = useState("");
     const [results, setResults] = useState([]);
     const searchNyt = async() => {
         const response = await searchMostShared(search);
         setResults(response);
         console.log(response);
-
 ;
     }
+    console.log(results)
+
     return (
         <div>
             <h1>Most Popular NYT Articles</h1>
@@ -31,11 +32,10 @@ function NytSearchScreen() {
                 <div className="mt-2">{results.published_date}</div>
                 <Link to={results.url}><h3>{results.title}</h3></Link>
                 <div>{results.byline}</div>
-                <Link to={`/nyt/article/${results.id}`}>
+                <Link to={`/nyt/popular-article/${results.id}`}>
                     <div className="mb-2">{results.abstract}</div>
                 </Link>
-                    <img src="{results.media.media-metadata.url}"/>
-
+                    <img src=""/>
             </li>))}
             </ul>
 
@@ -46,5 +46,5 @@ function NytSearchScreen() {
     )
 
 }
-export default NytSearchScreen;
+export default NytSearchPopularScreen;
 //{results.media.["media-metadata"][0].url}

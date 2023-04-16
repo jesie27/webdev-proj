@@ -16,3 +16,8 @@ export const generalSearch = async (query)=> {
     console.log(response);
     return response.data.response;
 }
+
+export const getArticle = async(articleID) => {
+    const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/shared/${articleID}.json?&api-key=${NYT_KEY}`);
+return response.data.id;
+}
