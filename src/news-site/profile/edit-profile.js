@@ -1,18 +1,10 @@
 import React, {useState} from "react";
+import {useSelector} from "react-redux";
 
 const EditProfileComponent = () => {
-    const [profile, setProfile] = useState({
-        firstName: "Nola",
-        lastName: "Corgi",
-        handle: "@nolathecorgi",
-        bio: "A corgi living in Boston",
-        location: "Boston, MA",
-        email: "nolathecorgi@gmail.com",
-        phone: "617-123-5678",
-        address: "11 First Ave",
-        dateJoined: "03/2023"
 
-    } )
+const {user} = useSelector((state) => state.profile)
+const [profile, setProfile] = useState(user);
 
     return (
         <div>
@@ -36,7 +28,7 @@ const EditProfileComponent = () => {
             <div className="wd-gray wd-nudge-up">{profile.handle}</div>
             <img className="rounded-circle" height={48} src=""/>
             <div className="wd-nudge-up">{profile.bio}</div>
-            <div className= "wd-nudge-up">
+            <div className= "wd-nudge-up mt-2">
                 <i className="bi bi-geo-alt"></i>
                 {profile.location}
                 <i className="bi bi-calendar-heart ps-4 pe-1"></i>
