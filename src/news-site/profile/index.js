@@ -8,7 +8,7 @@ const ProfileComponent = () => {
     return (
         <div>
             <div className="mt-2"><img className="" height={300} width={600}
-                                       src={('../images/ocean.jpg')}/></div>
+                                       src={require('../images/ocean.jpg')}/></div>
 
             <div className="wd-button mt-2">
                 <a href="/news/edit-profile">
@@ -16,7 +16,7 @@ const ProfileComponent = () => {
                 </a>
             </div>
             <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                src={('../images/bridge.jpg')}/></div>
+                src={(require('../images/bridge.jpg'))}/></div>
             <div className="wd-bold wd-nudge-up">{profile.firstName} {profile.lastName}</div>
             <div className="wd-gray wd-nudge-up">{profile.handle}</div>
             <img className="rounded-circle" height={48} src=""/>

@@ -20,11 +20,11 @@ const saveButtonHandler = () => {
             <h3>Edit Profile</h3>
 
             <div className="mt-2"><img className="" height={300} width={600}
-                                       src={('../images/ocean.jpg')}/></div>
+                                       src={require('../images/ocean.jpg')}/></div>
 
 
             <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                              src={'../images/bridge.jpg'}/></div>
+                                              src={require('../images/bridge.jpg')}/></div>
 
 
             <div className="wd-bold wd-nudge-up">{profile.firstName} {profile.lastName}</div>
