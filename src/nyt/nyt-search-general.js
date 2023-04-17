@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {generalSearch} from "./nyt-service";
+import {generalSearch} from "./nyt-service.js";
 import {Link} from "react-router-dom";
 
 function NytGeneralScreen() {

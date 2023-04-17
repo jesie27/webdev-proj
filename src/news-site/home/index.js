@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {searchMostViewed} from "../../nyt/nyt-service";
+import {searchMostViewed} from "../../nyt/nyt-service.js";
 import {Link} from "react-router-dom";
 const HomeComponent = () => {
     const [search, setSearch] = useState("");

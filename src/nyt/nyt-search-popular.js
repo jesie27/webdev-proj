@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {searchMostShared, searchMostSharedPics} from "./nyt-service";
+import {searchMostShared, searchMostSharedPics} from "./nyt-service.js";
 import {Link} from "react-router-dom";
 
 function NytSearchPopularScreen() {

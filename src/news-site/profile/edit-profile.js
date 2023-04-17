@@ -5,23 +5,26 @@ const EditProfileComponent = () => {
 
 const {user} = useSelector((state) => state.profile)
 const [profile, setProfile] = useState(user);
+const saveButtonHandler = () => {
+        alert('save');
+}
 
     return (
         <div>
             <div><button>X</button></div>
             <div className="wd-button mt-2">
                 <a href="/news/profile">
-                    <button className="btn btn-primary rounded-4 mb-3">Save</button>
+                    <button onClick={saveButtonHandler} className="btn btn-primary rounded-4 mb-3">Save</button>
                 </a>
             </div>
             <h3>Edit Profile</h3>
 
             <div className="mt-2"><img className="" height={300} width={600}
-                                       src={require('../images/ocean.jpg')}/></div>
+                                       src={('../images/ocean.jpg')}/></div>
 
 
             <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                              src={require('../images/bridge.jpg')}/></div>
+                                              src={'../images/bridge.jpg'}/></div>
 
 
             <div className="wd-bold wd-nudge-up">{profile.firstName} {profile.lastName}</div>

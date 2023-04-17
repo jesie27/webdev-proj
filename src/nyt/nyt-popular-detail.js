@@ -1,7 +1,7 @@
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
-import {getArticle} from "./nyt-service";
+import {getArticle} from "./nyt-service.js";
 function NytPopularDetailScreen() {
     const {id} = useParams();
     const[article, setArticle] = useState({});

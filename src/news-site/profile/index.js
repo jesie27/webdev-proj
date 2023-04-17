@@ -1,8 +1,5 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
-import EditProfileComponent from "./edit-profile";
 import {useDispatch, useSelector} from "react-redux";
-import EditProfile from "./edit-profile";
 import "../index.css"
 const ProfileComponent = () => {
     const {user} = useSelector((state) => state.profile)
@@ -11,7 +8,7 @@ const ProfileComponent = () => {
     return (
         <div>
             <div className="mt-2"><img className="" height={300} width={600}
-                                       src={require('../images/ocean.jpg')}/></div>
+                                       src={('../images/ocean.jpg')}/></div>
 
             <div className="wd-button mt-2">
                 <a href="/news/edit-profile">
@@ -19,7 +16,7 @@ const ProfileComponent = () => {
                 </a>
             </div>
             <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                src={require('../images/bridge.jpg')}/></div>
+                src={('../images/bridge.jpg')}/></div>
             <div className="wd-bold wd-nudge-up">{profile.firstName} {profile.lastName}</div>
             <div className="wd-gray wd-nudge-up">{profile.handle}</div>
             <img className="rounded-circle" height={48} src=""/>

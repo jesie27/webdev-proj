@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import profileArray from "./profile.json"
+//import {actionsReducer as userSlice} from "@reduxjs/toolkit/src/query/tests/helpers";
+
+
 const initialState = {
     user: {
         "firstName": "Nola",
@@ -21,8 +24,11 @@ const initialState = {
 const profileSlice = createSlice({
     name: "profile",
     initialState,
-    reducers:   {}
+    reducers:   {updateUser: (state, action) => {
+            state.user = action.payload;
+        }}
 
 });
 
 export default profileSlice.reducer;
+//export const {updateUser} = userSlice.actions;

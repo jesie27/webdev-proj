@@ -1,22 +1,20 @@
-import NavigationSidebar from "./navigation";
+import NavigationSidebar from "./navigation/index.js";
 import {Route, Routes} from "react-router";
-import HomeComponent from "./home";
-import ProfileComponent from "./profile";
-import SearchComponent from "./search";
-import NytSearchPopular from "../nyt/nyt-search-popular";
-import NytGeneralScreen from "../nyt/nyt-search-general";
-import NytPopularDetailScreen from "../nyt/nyt-popular-detail";
-import NytGeneralDetail from "../nyt/nyt-general-detail";
-import EditProfileComponent from "./profile/edit-profile";
-import ProfileReducer from "./profile/profile-reducer";
+import HomeComponent from "../news-site/home/index.js"
+import ProfileComponent from "../news-site/profile/index.js";
+import NytSearchPopular from "../nyt/nyt-search-popular.js";
+import NytGeneralScreen from "../nyt/nyt-search-general.js";
+import NytPopularDetailScreen from "../nyt/nyt-popular-detail.js";
+import NytGeneralDetail from "../nyt/nyt-general-detail.js";
+import EditProfileComponent from "./profile/edit-profile.js";
+import ProfileReducer from "./profile/profile-reducer.js";
 
 import { configureStore }
     from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
-import profileReducer from "./profile/profile-reducer";
 const store = configureStore(
     {reducer: {profile: ProfileReducer}});
-function News() {
+export function News() {
 
     return(
         <Provider store={store}>
@@ -43,4 +41,3 @@ function News() {
     </Provider>
     );
 }
-export default News
