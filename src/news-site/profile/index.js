@@ -25,13 +25,13 @@ const ProfileComponent = () => {
             <div className="wd-gray wd-nudge-up">{profileArray.handle}</div>
             <img className="rounded-circle" height={48} src=""/>
             <div className="wd-nudge-up">{profileArray.bio}</div>
-           <div className= "wd-nudge-up">
-               <i className="bi bi-geo-alt">
-               </i> {profileArray.location}
-               <i className="bi bi-calendar-heart"></i>
+            <div className= "wd-nudge-up">
+               <i className="bi bi-geo-alt"></i>
+               {profileArray.location}
+               <i className="bi bi-calendar-heart ps-4 pe-1"></i>
+               Joined {profileArray.dateJoined}
 
-           </div>
-
+            </div>
 
         </div>
     );
