@@ -15,7 +15,6 @@ const saveButtonHandler = () => {
 
     return (
         <div>
-            <div><button>X</button></div>
             <div className="wd-button mt-2">
                 <Link to={'/news/profile'}>
                     <button onClick={saveButtonHandler} className="btn btn-primary rounded-4 mb-3">Save</button>
@@ -93,7 +92,36 @@ const saveButtonHandler = () => {
                 }
             />
 
+
             <br/>
+            <label className="wd-nudge-up pe-2 mt-3">Location</label>
+            <input
+                className="wd-nudge-up"
+                value={profile.location}
+                onChange={(e) =>
+                    setProfile({
+                        ... profile,
+                        location: e.target.value,
+                    })
+                }
+            />
+
+            <br/>
+
+            <label className="wd-nudge-up pe-2 mt-3">Handle</label>
+            <input
+                className="wd-nudge-up"
+                value={profile.handle}
+                onChange={(e) =>
+                    setProfile({
+                        ... profile,
+                        handle: e.target.value,
+                    })
+                }
+            />
+
+            <br/>
+
             <label className="wd-nudge-up pe-2 mt-3">Bio</label>
             <input
                 className="wd-nudge-up"
