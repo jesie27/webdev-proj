@@ -1,0 +1,17 @@
+.wd-gray {
+    color: gray;
+}
+
+.wd-bold {
+    font-weight: bold;
+}
+
+.wd-nudge-up {
+    position: relative;
+    bottom: 80px;
+}
+.wd-button {
+    position:relative;
+    z-index: 99;
+    float: right;
+}
