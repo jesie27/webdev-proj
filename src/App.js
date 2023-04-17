@@ -1,4 +1,6 @@
 import './App.js';
+import React from 'react'
+
 import {News} from "../src/news-site/index.js"
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route} from "react-router";

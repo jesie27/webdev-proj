@@ -1,3 +1,4 @@
+import React from 'react'
 import NavigationSidebar from "./navigation/index.js";
 import {Route, Routes} from "react-router";
 import HomeComponent from "../news-site/home/index.js"
