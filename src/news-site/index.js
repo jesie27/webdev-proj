@@ -32,6 +32,7 @@ export function News() {
                     <Route path="/news/profile" element={<ProfileComponent/>}>Profile</Route>
                     <Route path="/news/edit-profile" element={<EditProfileComponent/>}>Profile</Route>
                     <Route path="/news/general-search" element={<NytGeneralScreen/>}>General Search</Route>
+                    <Route path="/news/general-search/:searchTerm" element={<NytGeneralScreen/>}>General Search</Route>
                     <Route path="/news/popular-search" element={<NytSearchPopular/>}>Popular Search</Route>
                     <Route path="/news/popular-article/:id" element={<NytPopularDetailScreen/>}></Route>
                     <Route path="/news/general-article/:headline" element={<NytGeneralDetail/>}></Route>

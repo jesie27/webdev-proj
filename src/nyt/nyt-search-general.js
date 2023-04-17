@@ -1,17 +1,25 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {generalSearch} from "./nyt-service.js";
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 function NytGeneralScreen() {
-    const [search, setSearch] = useState("");
-    const [results, setResults] = useState([]);
+    const {searchTerm} = useParams();
+    const [search, setSearch] = useState(searchTerm);
+    const navigate  = useNavigate();
+    const [results, setResults] = useState({});
     const searchNyt = async() => {
         const response = await generalSearch(search);
         setResults(response);
+        navigate(`/news/general-search/${search}`)
         console.log(response);
         console.log('cat');
-
     }
+    useEffect(() => {
+        if(searchTerm) {
+            searchNyt();
+        }
+        }, [searchTerm]
+    );
     return (
         <div>
             <h1>General NYT Article Search</h1>
