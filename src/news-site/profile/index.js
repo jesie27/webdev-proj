@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "../index.css"
+import {Link} from "react-router-dom";
 const ProfileComponent = () => {
-    const {user} = useSelector((state) => state.profile)
+    const {user} = useSelector((state) => state.user)
     const [profile, setProfile] = useState(user);
 
     return (
@@ -11,9 +12,9 @@ const ProfileComponent = () => {
                                        src={require('../images/ocean.jpg')}/></div>
 
             <div className="wd-button mt-2">
-                <a href="/news/edit-profile">
+                <Link to={'/news/edit-profile'}>
                     <button className="btn btn-primary rounded-4">Edit</button>
-                </a>
+                </Link>
             </div>
             <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
                 src={(require('../images/bridge.jpg'))}/></div>

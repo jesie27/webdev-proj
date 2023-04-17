@@ -17,16 +17,17 @@ const initialState = {
         "followingCount": 100,
         "followersCount": 1000000
     }
-}
+};
 
 const profileSlice = createSlice({
-    name: "profile",
+    name: "user",
     initialState,
-    reducers:   {updateUser: (state, action) => {
+    reducers:{
+        updateUser: (state, action) => {
             state.user = action.payload;
-        }}
-
+        },
+    },
 });
 
 export default profileSlice.reducer;
-//export const {updateUser} = profileSlice.actions;
+export const {updateUser} = profileSlice.actions;

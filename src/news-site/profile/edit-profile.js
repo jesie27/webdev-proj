@@ -1,21 +1,25 @@
 import React, {useState} from "react";
-import {useSelector} from "react-redux";
-
+import {useDispatch, useSelector} from "react-redux";
+import {ProfileComponent} from "./index";
+import {updateUser} from "./profile-reducer"
+import {Link} from "react-router-dom";
 const EditProfileComponent = () => {
 
-const {user} = useSelector((state) => state.profile)
+const {user} = useSelector((state) => state.user)
 const [profile, setProfile] = useState(user);
+const dispatch = useDispatch();
 const saveButtonHandler = () => {
-        alert('save');
+    dispatch(updateUser(profile));
+    console.log(profile);
 }
 
     return (
         <div>
             <div><button>X</button></div>
             <div className="wd-button mt-2">
-                <a href="/news/profile">
+                <Link to={'/news/profile'}>
                     <button onClick={saveButtonHandler} className="btn btn-primary rounded-4 mb-3">Save</button>
-                </a>
+                </Link>
             </div>
             <h3>Edit Profile</h3>
 

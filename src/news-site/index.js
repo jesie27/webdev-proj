@@ -14,7 +14,7 @@ import { configureStore }
     from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
 const store = configureStore(
-    {reducer: {profile: ProfileReducer}});
+    {reducer: {user: ProfileReducer}});
 export function News() {
 
     return(
