@@ -33,7 +33,7 @@ function NytGeneralScreen() {
                         </Link>
 
                         <div>{docs.byline.original}</div>
-                        <Link to={`/nyt/general-article/${docs.headline.main}`}>
+                        <Link to={`/news/general-article/${docs.headline.main}`}>
                             <div className="mb-2">{docs.abstract}</div>
                         </Link>
                         <div><img src="${docs.multimedia[0].url}"/></div>

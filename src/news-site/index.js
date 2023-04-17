@@ -32,10 +32,10 @@ function News() {
                     <Route path="/news/home" element={<HomeComponent/>}>Home</Route>
                     <Route path="/news/profile" element={<ProfileComponent/>}>Profile</Route>
                     <Route path="/news/edit-profile" element={<EditProfileComponent/>}>Profile</Route>
-                    <Route path="/news/nyt/general-search" element={<NytGeneralScreen/>}>General Search</Route>
-                    <Route path="/news/nyt/popular-search" element={<NytSearchPopular/>}>Popular Search</Route>
-                    <Route path="/nyt/popular-article/:id" element={<NytPopularDetailScreen/>}></Route>
-                    <Route path="/nyt/general-article/:headline" element={<NytGeneralDetail/>}></Route>
+                    <Route path="/news/general-search" element={<NytGeneralScreen/>}>General Search</Route>
+                    <Route path="/news/popular-search" element={<NytSearchPopular/>}>Popular Search</Route>
+                    <Route path="/news/popular-article/:id" element={<NytPopularDetailScreen/>}></Route>
+                    <Route path="/news/general-article/:headline" element={<NytGeneralDetail/>}></Route>
 
                 </Routes>
             </div>
