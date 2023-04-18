@@ -17,7 +17,7 @@ export const updateUser = async (newUser) => {
 export const deleteUser = async (id) => {
     return axios.delete(`${USERS_API_URL}/${id}`);
 }
-export const login = async (user) => {
+export const login = (user) => {
     return axios.post(`${USERS_API_URL}/login`, user);
 }
 

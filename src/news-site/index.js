@@ -14,8 +14,9 @@ import LoginScreen from "./login/login-screen.js";
 import { configureStore }
     from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
+import usersReducer from "./users/users-reducer";
 const store = configureStore(
-    {reducer: {user: ProfileReducer}});
+    {reducer: {users: usersReducer}});
 export function News() {
 
     return(
@@ -45,3 +46,4 @@ export function News() {
     </Provider>
     );
 }
+export default store;

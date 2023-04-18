@@ -1,6 +1,6 @@
 const {createSlice} = require("@reduxjs/toolkit")
 const {findAllUsersThunk, createUserThunk, deleteUserThunk, updateUserThunk, loginThunk, logoutThunk, profileThunk, registerThunk,
-    findAllUsersThunk} = require("./users-thunks.js");
+    } = require("./users-thunks.js");
 
 const initialState = {
     users: [],
@@ -16,8 +16,7 @@ const userSlice = createSlice({
     extraReducers: {
         [updateUserThunk.fulfilled]: (state, action) => {
         state.users = state.users.map((user) =>
-        user.id === action.payload.id? action.payload : user
-);
+        user.id === action.payload.id? action.payload : user);
         },
         [createUserThunk.fulfilled]: (state, action) => {
             state.users.push(action.payload);
