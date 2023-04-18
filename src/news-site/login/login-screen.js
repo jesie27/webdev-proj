@@ -9,7 +9,7 @@ function loginScreen () {
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
 
-    const login = () => {
+    const toggleLogin = () => {
         dispatch(loginThunk({username, password}));
     }
     return (
@@ -32,16 +32,25 @@ function loginScreen () {
             <input
                 type="text"
                 id="password"
-                className="formControl ms-2"
+                className="password ms-2"
                 value={password}
                 onChange={(e) => {
                     setPassword(e.target.value);
                 }}
             />
         </div>
-            <button className="btn btn-primary">Login</button>
+            <button onClick={toggleLogin} className="btn btn-primary">Login</button>
+            <div>
+                {currentUser && (
+                    <div>
+                <h1>{currentUser.username}</h1>
+                        <h1>{currentUser.password}</h1>
+
+                    </div> )}
+            </div>
         </div>
 
     );
+    console.log(username.password);
 }
 export default loginScreen;

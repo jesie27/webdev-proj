@@ -8,10 +8,10 @@ const UserController = (app) => {
     app.post('/api/users', createUser);
     app.delete('/api/users/:uid', deleteUser);
     app.put('/api/users/:uid', updateUser);
-    app.post('api/login', login);
-    app.post('api/logout', logout);
-    app.get('api/profile', profile);
-    app.post('api/register', register);
+    app.post('api/users/login', login);
+    app.post('api/users/logout', logout);
+    app.get('api/users/profile', profile);
+    app.post('api/users/register', register);
 
 }
 
