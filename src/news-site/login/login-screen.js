@@ -1,3 +1,5 @@
+import {useState} from "react";
+import React from "react";
 function loginScreen () {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -15,4 +17,4 @@ function loginScreen () {
         </div>
     );
 }
-export default LoginScreen;
+export default loginScreen;

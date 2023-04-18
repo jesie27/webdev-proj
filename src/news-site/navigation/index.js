@@ -15,6 +15,9 @@ const NavigationSidebar = () => {
         <Link to="/news/profile" className={`list-group-item             
         ${active === 'profile' ? 'active' : ''}`}>
         Profile</Link>
+        <Link to="/news/login" className={`list-group-item             
+        ${active === 'login' ? 'active' : ''}`}>
+            Login</Link>
         <Link to="/news/general-search" className={`list-group-item
          ${active === 'general-search' ? 'active' : ''}`}>
         NYT General Search</Link>

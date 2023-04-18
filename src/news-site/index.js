@@ -9,6 +9,7 @@ import NytPopularDetailScreen from "../nyt/nyt-popular-detail.js";
 import NytGeneralDetail from "../nyt/nyt-general-detail.js";
 import EditProfileComponent from "./profile/edit-profile.js";
 import ProfileReducer from "./profile/profile-reducer.js";
+import LoginScreen from "./login/login-screen.js";
 
 import { configureStore }
     from '@reduxjs/toolkit';
@@ -31,6 +32,7 @@ export function News() {
                     <Route path="/news/home" element={<HomeComponent/>}>Home</Route>
                     <Route path="/news/profile" element={<ProfileComponent/>}>Profile</Route>
                     <Route path="/news/edit-profile" element={<EditProfileComponent/>}>Profile</Route>
+                    <Route path="/news/login" element={<LoginScreen/>}>Login</Route>
                     <Route path="/news/general-search" element={<NytGeneralScreen/>}>General Search</Route>
                     <Route path="/news/general-search/:searchTerm" element={<NytGeneralScreen/>}>General Search</Route>
                     <Route path="/news/popular-search" element={<NytSearchPopular/>}>Popular Search</Route>
