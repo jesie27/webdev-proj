@@ -1,6 +1,6 @@
 const {createSlice} = require("@reduxjs/toolkit")
 const {findAllUsersThunk, createUserThunk, deleteUserThunk, updateUserThunk, loginThunk, logoutThunk, profileThunk, registerThunk,
-    findAllUsersThunk} = require("./users-thunks");
+    findAllUsersThunk} = require("./users-thunks.js");
 
 const initialState = {
     users: [],

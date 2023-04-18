@@ -1,4 +1,4 @@
-import * as userService from "./users-service";
+import * as userService from "./users-service.js";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
 export const findAllUsersThunk = createAsyncThunk('users/findAll', async() => {
