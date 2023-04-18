@@ -22,7 +22,7 @@ export const login = async (user) => {
 }
 
 export const logout = async () => {
-    return axios.post(`${USERS_API_URL}/logout `)''
+    return axios.post(`${USERS_API_URL}/logout `)
 }
 
 export const register = async (user) => {
