@@ -25,13 +25,13 @@ export const logout = async () => {
     return axios.post(`${USERS_API_URL}/logout `)
 }
 
-export const register = async (user) => {
+export const register = (user) => {
     return axios.post(`${USERS_API_URL}/register`, user);
 }
 
 export const profile = async () => {
     return axios.get(`${USERS_API_URL}/profile`);
 }
-export const editProfile = async () => {
-    return axios.get(`${USERS_API_URL}/edit-profile`);
+export const editProfile = async (user) => {
+    return axios.get(`${USERS_API_URL}/edit-profile`, user);
 }

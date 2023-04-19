@@ -36,11 +36,9 @@ export const logoutThunk = createAsyncThunk('users/logout', async() =>{
     await userService.logout();
 });
 
-export const registerThunk = createAsyncThunk("users/register",
-    async (user) => {
+export const registerThunk = createAsyncThunk("users/register", async (user) => {
         const response = await userService.register(user);
         return response.data;
-
     });
 
 export const profileThunk = createAsyncThunk('users/profile', async() => {
@@ -48,7 +46,7 @@ export const profileThunk = createAsyncThunk('users/profile', async() => {
     return response.data;
 });
 
-export const editProfileThunk = createAsyncThunk('users/edit-profile', async() => {
-    const response = await userService.editProfile();
+export const editProfileThunk = createAsyncThunk('users/edit-profile', async(user) => {
+    const response = await userService.editProfile(user);
     return response.data;
 })

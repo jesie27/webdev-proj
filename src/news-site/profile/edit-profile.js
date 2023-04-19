@@ -6,23 +6,26 @@ import {Link} from "react-router-dom";
 import {profileThunk, editProfileThunk} from "../users/users-thunks";
 const EditProfileComponent = () => {
 
-const {currentUser} = useSelector((state) => state.users)
-const [profile, setProfile] = useState(currentUser);
-const dispatch = useDispatch();
+    const {currentUser} = useSelector((state) => state.users)
+    const [profile, setProfile] = useState(currentUser);
+    const dispatch = useDispatch();
     useEffect(  () => {
-        dispatch(editProfileThunk());
+        dispatch(profileThunk());
     }, []);
+    console.log("hi");
     console.log(currentUser);
-const saveButtonHandler = () => {
-    dispatch(updateUser(profile));
-    console.log(profile);
+    const saveButtonHandler = () => {
+        dispatch(updateUser(profile));
+
+        console.log(profile);
 
     return (
         <div>
             {currentUser && (
+                <div>
                 <h1>Welcome {currentUser.username}</h1>
-
-
+                    <h2>hi</h2>
+                </div>
             )
             }
             <div className="wd-button mt-2">

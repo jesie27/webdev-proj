@@ -2,27 +2,43 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "../index.css"
 import {Link} from "react-router-dom";
-import {loginThunk, logoutThunk, profileThunk} from "../users/users-thunks";
+import {editProfileThunk, loginThunk, logoutThunk, profileThunk} from "../users/users-thunks";
 import {useNavigate} from "react-router-dom";
 import editProfile from "./edit-profile";
+import {current} from "@reduxjs/toolkit";
 
 const ProfileComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const [profile, setProfile] = useState(currentUser);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(  () => {
         dispatch(profileThunk());
     }, []);
-    return (
+    const toggleEditProfile = () => {
+        try {
+            //dispatch(editProfileThunk({username, password}));
+            navigate("/news/edit-profile");
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
+        return (
         <div>
             <div>
                 {currentUser && (
                 <div>
-                    <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>
+                    <h1>Welcome {currentUser.firstName} {currentUser.lastName}{currentUser.username}</h1>
                     <div className="mt-2"><img className="" height={300} width={600}
                                                src={require('../images/ocean.jpg')}/>
                     </div>
+
+
                     <div className="wd-button mt-2">
                         <Link to={'/news/edit-profile'}>
                             <button className="btn btn-primary rounded-4">Edit</button>
@@ -50,6 +66,8 @@ const ProfileComponent = () => {
                 dispatch(logoutThunk());
                 navigate("/news/login");
             }}>Logout</button>
+            <button onClick={toggleEditProfile} className="btn btn-primary">Edit Profile</button>
+
 
         </div>
     );

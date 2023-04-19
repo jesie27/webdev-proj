@@ -2,7 +2,6 @@ import {useState} from "react";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {loginThunk} from "../users/users-thunks";
-import {current} from "@reduxjs/toolkit";
 import {useNavigate} from "react-router-dom";
 
 function LoginScreen () {
@@ -26,7 +25,7 @@ function LoginScreen () {
         <div>
             <h1>Login</h1>
             <div>
-            <label htmlFor="username" >Username</label>
+            <label htmlFor="username">Username</label>
             <input
             type="text"
             id="username"

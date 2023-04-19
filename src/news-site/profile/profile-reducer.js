@@ -5,6 +5,8 @@ const initialState = {
     user: {
         "firstName": "Nola",
         "lastName": "Corgi",
+        "userName" :"thecorgi",
+        "password" : "123",
         "handle": "@nolathecorgi",
         "profilePicture": "../images/bridge.jpg",
         "bannerPicture": "../images/ocean.jpg",

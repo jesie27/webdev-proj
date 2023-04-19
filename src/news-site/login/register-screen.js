@@ -1,7 +1,6 @@
 import {useState} from "react";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {current} from "@reduxjs/toolkit";
 import {useNavigate} from "react-router-dom";
 import {registerThunk} from "../users/users-thunks";
 
@@ -22,11 +21,14 @@ function RegisterScreen () {
             dispatch(registerThunk({username, password, firstName, lastName, dateOfBirth, location, role}));
             navigate("/news/profile");
             console.log(currentUser.firstName);
-            console.log(username);
 
         } catch (err) {
             console.log(err);
         }
+    }
+
+    const onOptionChange = e => {
+        setRole(e.value)
     }
     return (
         <div>
@@ -107,22 +109,19 @@ function RegisterScreen () {
                     }}
                 />
             </div>
-
-
-
             <div className="mb-2">Select your role</div>
             <div>
 
                 <input
                 type="radio" value="WRITER" id="radio-writer" name="radio-role"
                 />
-                <label htmlFor="radio-writer" className="pe-4">
+                <label htmlFor="radio-writer" className="pe-4 ms-1">
                     Writer</label>
-
                 <input
-                    type="radio" value="READER" id="radio-reader" name="radio-role"
+                    type="radio" value="READER" id="radio-reader" name="radio-role"  onClick={onOptionChange}
+
                 />
-                <label htmlFor="radio-reader">
+                <label htmlFor="radio-reader" className="ms-1">
                     Reader</label>
             </div>
             <button onClick={toggleRegister} className="btn btn-primary mt-3">Register</button>
