@@ -69,14 +69,22 @@ function RegisterScreen () {
                     }}
                 />
             </div>
+            <div className="mb-2">Select your role</div>
             <div>
-                <label htmlFor="role">
-                    Select role</label>
+
                 <input
                 type="radio" value="WRITER" id="radio-writer" name="radio-role"
                 />
+                <label htmlFor="radio-writer" className="pe-4">
+                    Writer</label>
+
+                <input
+                    type="radio" value="READER" id="radio-reader" name="radio-role"
+                />
+                <label htmlFor="radio-reader">
+                    Reader</label>
             </div>
-            <button onClick={toggleRegister} className="btn btn-primary">Register</button>
+            <button onClick={toggleRegister} className="btn btn-primary mt-3">Register</button>
         </div>
 
     );
