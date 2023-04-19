@@ -50,7 +50,7 @@ function RegisterScreen () {
                 <input
                     type="text"
                     id="password"
-                    className="password ms-2"
+                    className="form-control ms-2"
                     value={password}
                     onChange={(e) => {
                         setPassword(e.target.value);
@@ -62,13 +62,28 @@ function RegisterScreen () {
                 <input
                     type="text"
                     id="firstName"
-                    className=" ms-2"
+                    className="form-control ms-2"
                     value={firstName}
                     onChange={(e) => {
                         setFirstName(e.target.value);
                     }}
                 />
             </div>
+
+
+            <div>
+                <label htmlFor="lastName" >Last Name</label>
+                <input
+                    type="text"
+                    id="lastName"
+                    className = "form-control ms-2"
+                    value = {lastName}
+                    onChange={(e) => {
+                        setLastName(e.target.value);
+                    }}
+                />
+            </div>
+
             <div className="mb-2">Select your role</div>
             <div>
 
