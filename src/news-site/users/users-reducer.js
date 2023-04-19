@@ -44,14 +44,16 @@ const userSlice = createSlice({
         [logoutThunk.fulfilled]: (state, action) => {
             state.currentUser = null;
         },
+
         [profileThunk]: (state, action) => {
             state.currentUser = action.payload;
         },
 
+
         [registerThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload;
         },
-        [editProfileThunk]: (state, action) => {
+        [editProfileThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload;
         },
     }

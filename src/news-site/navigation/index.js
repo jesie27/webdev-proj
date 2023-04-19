@@ -15,6 +15,9 @@ const NavigationSidebar = () => {
             ${active==='home' ? 'active':''}`}>
             Home</Link>
 
+        <Link to="/news/admin" className={`list-group-item
+            ${active==='admin' ? 'active':''}`}>
+            Admin</Link>
         {currentUser &&
             <Link to="/news/profile" className={`list-group-item             
         ${active === 'profile' ? 'active' : ''}`}>

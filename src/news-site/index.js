@@ -12,6 +12,8 @@ import ProfileReducer from "./profile/profile-reducer.js";
 import LoginScreen from "./login/login-screen.js";
 import RegisterScreen from "./login/register-screen";
 
+import AdminScreen from "./admin/admin";
+
 import { configureStore }
     from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
@@ -36,6 +38,7 @@ export function News() {
                     <Route path="/news/edit-profile" element={<EditProfileComponent/>}>Profile</Route>
                     <Route path="/news/login" element={<LoginScreen/>}>Login</Route>
                     <Route path="/news/register" element={<RegisterScreen/>}>Login</Route>
+                    <Route path="/news/admin" element={<AdminScreen/>}>Login</Route>
 
                     <Route path="/news/general-search" element={<NytGeneralScreen/>}>General Search</Route>
                     <Route path="/news/general-search/:searchTerm" element={<NytGeneralScreen/>}>General Search</Route>
