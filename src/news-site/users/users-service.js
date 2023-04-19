@@ -32,3 +32,6 @@ export const register = async (user) => {
 export const profile = async () => {
     return axios.get(`${USERS_API_URL}/profile`);
 }
+export const editProfile = async () => {
+    return axios.get(`${USERS_API_URL}/edit-profile`);
+}

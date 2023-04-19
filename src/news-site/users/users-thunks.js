@@ -38,10 +38,17 @@ export const logoutThunk = createAsyncThunk('users/logout', async() =>{
 
 export const registerThunk = createAsyncThunk("users/register",
     async (user) => {
-        await userService.register(user);
-});
+        const response = await userService.register(user);
+        return response.data;
+
+    });
 
 export const profileThunk = createAsyncThunk('users/profile', async() => {
     const response = await userService.profile();
     return response.data;
 });
+
+export const editProfileThunk = createAsyncThunk('users/edit-profile', async() => {
+    const response = await userService.editProfile();
+    return response.data;
+})

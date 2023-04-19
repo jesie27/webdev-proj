@@ -1,0 +1,84 @@
+import {useState} from "react";
+import React from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {current} from "@reduxjs/toolkit";
+import {useNavigate} from "react-router-dom";
+import {registerThunk} from "../users/users-thunks";
+
+function RegisterScreen () {
+    const {currentUser} = useSelector((state) => state.users);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [dateJoined, setDateJoined] = useState("");
+    const [role, setRole] = useState("");
+
+
+    const [location, setLocation] = useState("");
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const toggleRegister = () => {
+        try {
+            dispatch(registerThunk({username, password}));
+            navigate("/news/profile");
+            console.log(currentUser.firstName);
+            console.log(username);
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    return (
+        <div>
+            <h1>Register</h1>
+            <div>
+                <label htmlFor="username" >Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    className = "form-control ms-2"
+                    value = {username}
+                    onChange={(e) => {
+                        setUsername(e.target.value);
+                    }}
+                />
+            </div>
+            <div className="mb-3 mt-3">
+                <label htmlFor="password">Password</label>
+                <input
+                    type="text"
+                    id="password"
+                    className="password ms-2"
+                    value={password}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                    }}
+                />
+            </div>
+            <div className="mb-3 mt-3">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                    type="text"
+                    id="firstName"
+                    className=" ms-2"
+                    value={firstName}
+                    onChange={(e) => {
+                        setFirstName(e.target.value);
+                    }}
+                />
+            </div>
+            <div>
+                <label htmlFor="role">
+                    Select role</label>
+                <input
+                type="radio" value="WRITER" id="radio-writer" name="radio-role"
+                />
+            </div>
+            <button onClick={toggleRegister} className="btn btn-primary">Register</button>
+        </div>
+
+    );
+}
+export default RegisterScreen;

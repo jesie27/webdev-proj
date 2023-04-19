@@ -2,8 +2,9 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "../index.css"
 import {Link} from "react-router-dom";
-import {profileThunk} from "../users/users-thunks";
+import {loginThunk, logoutThunk, profileThunk} from "../users/users-thunks";
 import {useNavigate} from "react-router-dom";
+import editProfile from "./edit-profile";
 
 const ProfileComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
@@ -18,7 +19,7 @@ const ProfileComponent = () => {
             <div>
                 {currentUser && (
                 <div>
-                    <h1>Welcome {currentUser.username}</h1>
+                    <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>
                     <div className="mt-2"><img className="" height={300} width={600}
                                                src={require('../images/ocean.jpg')}/>
                     </div>
@@ -27,6 +28,7 @@ const ProfileComponent = () => {
                             <button className="btn btn-primary rounded-4">Edit</button>
                         </Link>
                     </div>
+
 
                     <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
                                                       src={(require('../images/bridge.jpg'))}/></div>
@@ -42,13 +44,12 @@ const ProfileComponent = () => {
                     </div>
 
                 </div>
-
-
-
-
                 )}
-
             </div>
+            <button className="btn btn-danger wd-nudge-up mt-3" onClick={() => {
+                dispatch(logoutThunk());
+                navigate("/news/login");
+            }}>Logout</button>
 
         </div>
     );

@@ -1,3 +1,5 @@
+import {editProfileThunk} from "./users-thunks";
+
 const {createSlice} = require("@reduxjs/toolkit")
 const {findAllUsersThunk, createUserThunk, deleteUserThunk, updateUserThunk, loginThunk, logoutThunk, profileThunk, registerThunk,
     } = require("./users-thunks.js");
@@ -45,7 +47,11 @@ const userSlice = createSlice({
         [profileThunk]: (state, action) => {
             state.currentUser = action.payload;
         },
-        [registerThunk]: (state, action) => {
+
+        [registerThunk.fulfilled]: (state, action) => {
+            state.currentUser = action.payload;
+        },
+        [editProfileThunk]: (state, action) => {
             state.currentUser = action.payload;
         },
     }
