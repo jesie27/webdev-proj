@@ -11,17 +11,15 @@ function RegisterScreen () {
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [dateJoined, setDateJoined] = useState("");
+    const [dateOfBirth, setDateOfBirth] = useState("");
     const [role, setRole] = useState("");
-
-
     const [location, setLocation] = useState("");
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const toggleRegister = () => {
         try {
-            dispatch(registerThunk({username, password}));
+            dispatch(registerThunk({username, password, firstName, lastName, dateOfBirth, location, role}));
             navigate("/news/profile");
             console.log(currentUser.firstName);
             console.log(username);
@@ -83,6 +81,34 @@ function RegisterScreen () {
                     }}
                 />
             </div>
+
+            <div>
+                <label htmlFor="birthday" >Date of Birth</label>
+                <input
+                    type="text"
+                    id="birthday"
+                    className = "form-control ms-2"
+                    value = {dateOfBirth}
+                    onChange={(e) => {
+                        setDateOfBirth(e.target.value);
+                    }}
+                />
+            </div>
+
+            <div>
+                <label htmlFor="location" >Location</label>
+                <input
+                    type="text"
+                    id="location"
+                    className = "form-control ms-2"
+                    value = {location}
+                    onChange={(e) => {
+                        setLocation(e.target.value);
+                    }}
+                />
+            </div>
+
+
 
             <div className="mb-2">Select your role</div>
             <div>

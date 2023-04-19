@@ -20,10 +20,11 @@ const saveButtonHandler = () => {
     return (
         <div>
             {currentUser && (
-                <h1>Welcome {currentUser.username}</h1>)
+                <h1>Welcome {currentUser.username}</h1>
 
 
-                }
+            )
+            }
             <div className="wd-button mt-2">
                 <Link to={'/news/profile'}>
                     <button onClick={saveButtonHandler} className="btn btn-primary rounded-4 mb-3">Save</button>

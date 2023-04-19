@@ -26,6 +26,7 @@ function AdminScreen() {
 
                             <div><span className="wd-bold">Date of Birth: </span>{user.dateOfBirth}</div>
                             <div><span className="wd-bold">Date Joined: </span>{user.dateJoined}</div>
+                            <div><span className="wd-bold">Location: </span>{user.location}</div>
 
                             <div><span className="wd-bold">Role: </span>{user.role}</div>
 
