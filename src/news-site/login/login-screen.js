@@ -3,15 +3,22 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {loginThunk} from "../users/users-thunks";
 import {current} from "@reduxjs/toolkit";
+import {useNavigate} from "react-router-dom";
 
 function LoginScreen () {
     const {currentUser} = useSelector((state) => state.users);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     const toggleLogin = () => {
-        dispatch(loginThunk({username, password}));
+        try {
+            dispatch(loginThunk({username, password}));
+            navigate("/news/profile");
+
+        } catch (err) {
+            console.log(err);
+        }
 
 
     }
