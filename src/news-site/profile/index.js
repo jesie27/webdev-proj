@@ -33,7 +33,7 @@ const ProfileComponent = () => {
             <div>
                 {currentUser && (
                 <div>
-                    <h1>Welcome {currentUser.firstName} {currentUser.lastName}{currentUser.username}</h1>
+                    <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>
                     <div className="mt-2"><img className="" height={300} width={600}
                                                src={require('../images/ocean.jpg')}/>
                     </div>
@@ -66,8 +66,11 @@ const ProfileComponent = () => {
                 dispatch(logoutThunk());
                 navigate("/news/login");
             }}>Logout</button>
-            <button onClick={toggleEditProfile} className="btn btn-primary">Edit Profile</button>
-
+            <div>
+                {!current &&(
+                    <h2>Must log in to see profile screen</h2>
+                )}
+            </div>
 
         </div>
     );

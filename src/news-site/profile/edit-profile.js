@@ -2,13 +2,14 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {ProfileComponent} from "./index";
 import {updateUser} from "./profile-reducer"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {profileThunk, editProfileThunk} from "../users/users-thunks";
 const EditProfileComponent = () => {
 
     const {currentUser} = useSelector((state) => state.users)
     const [profile, setProfile] = useState(currentUser);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     useEffect(  () => {
         dispatch(profileThunk());
     }, []);
@@ -16,7 +17,7 @@ const EditProfileComponent = () => {
     console.log(currentUser);
     const saveButtonHandler = () => {
         dispatch(updateUser(profile));
-
+        navigate('/news/profile');
         console.log(profile);
     }
 
@@ -24,13 +25,10 @@ const EditProfileComponent = () => {
         <div>
             {currentUser && (
                 <div>
-                <h1>Welcome {currentUser.username}</h1>
-                    <h2>hi</h2>
+                <h2>Welcome {currentUser.firstName} {currentUser.lastName}</h2>
 
                     <div className="wd-button mt-2">
-                        <Link to={'/news/profile'}>
-                            <button onClick={saveButtonHandler} className="btn btn-primary rounded-4 mb-3">Save</button>
-                        </Link>
+                        <button onClick={saveButtonHandler} className="btn btn-primary rounded-4 mb-3">Save</button>
                     </div>
                     <h3>Edit Profile</h3>
                     <div className="mt-2"><img className="" height={300} width={600}
@@ -50,10 +48,10 @@ const EditProfileComponent = () => {
                         {currentUser.location}
                         <i className="bi bi-calendar-heart ps-4 pe-1"></i>
                         Joined {currentUser.dateJoined}
-
                     </div>
 
-                    <label className="wd-nudge-up pe-2 mt-2" >First Name</label>
+
+                    <label className="wd-nudge-up pe-2 mt-3" >First Name</label>
                     <input
                         className="wd-nudge-up"
                         value={currentUser.firstName}
@@ -68,7 +66,7 @@ const EditProfileComponent = () => {
                     <label className="wd-nudge-up pe-2 mt-3">Last Name</label>
                     <input
                         className="wd-nudge-up"
-                        value={profile.lastName}
+                        placeholder={profile.lastName}
                         onChange={(e) =>
                             setProfile({
                                 ...profile,

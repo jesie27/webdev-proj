@@ -41,7 +41,7 @@ function LoginScreen () {
             <input
                 type="text"
                 id="password"
-                className="password ms-2"
+                className="form-control ms-2"
                 value={password}
                 onChange={(e) => {
                     setPassword(e.target.value);
