@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {searchMostViewed} from "../../nyt/nyt-service.js";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 const HomeComponent = () => {
+    const {currentUser} = useSelector((state) => state.users)
     const [search, setSearch] = useState("");
     const [results, setResults] = useState([]);
     const searchNyt = async() => {
@@ -14,7 +16,15 @@ const HomeComponent = () => {
 
     return (
         <div>
+
             <h1>Home</h1>
+            <div>
+                {currentUser && (
+                    <div>
+                        <h3>Welcome {currentUser.firstName} {currentUser.lastName}!</h3>
+                    </div>
+                )}
+            </div>
             <ul className="list-group mt-3">
             {results.results && results.results.map((results) => (
                 <li className="list-group-item"  key={results.id}>
