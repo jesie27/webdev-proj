@@ -51,7 +51,7 @@ const ProfileComponent = () => {
                     <div className="wd-bold wd-nudge-up">{currentUser.firstName} {currentUser.lastName}</div>
                     <div className="wd-gray wd-nudge-up">{currentUser.handle}</div>
                     <img className="rounded-circle" height={48} src=""/>
-                    <div className="wd-nudge-up">{currentUser.bio}</div>
+                    <div className="wd-nudge-up mb-3">{currentUser.bio}</div>
                     <div className= "wd-nudge-up mt-2">
                         <i className="bi bi-geo-alt pe-2"></i>
                         {currentUser.location}

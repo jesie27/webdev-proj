@@ -45,7 +45,30 @@ const EditProfileComponent = () => {
                         <i className="bi bi-calendar-heart ps-4 pe-1"></i>
                         Joined {profile.dateJoined}
                     </div>
-
+                    <label className="wd-nudge-up pe-2 mt-3">Username</label>
+                    <input
+                        className="wd-nudge-up"
+                        placeholder={profile.username}
+                        onChange={(e) =>
+                            setProfile({
+                                ...profile,
+                                username: e.target.value,
+                            })
+                        }
+                    />
+                    <br/>
+                    <label className="wd-nudge-up pe-2 mt-3">Password</label>
+                    <input
+                        className="wd-nudge-up"
+                        placeholder={profile.password}
+                        onChange={(e) =>
+                            setProfile({
+                                ...profile,
+                                password: e.target.value,
+                            })
+                        }
+                    />
+                    <br/>
 
                     <label className="wd-nudge-up pe-2 mt-3" >First Name</label>
                     <input
@@ -127,7 +150,7 @@ const EditProfileComponent = () => {
 
                     <br/>
 
-                    <label className="wd-nudge-up pe-2 mt-3">Bio</label>
+                    <label className="wd-nudge-up pe-2 mb-3">Bio</label>
                     <input
                         className="wd-nudge-up"
                         placeholder={profile.bio}
