@@ -10,8 +10,8 @@ export const createUser = async (user) => {
     return axios.post(USERS_API_URL, user);
 }
 
-export const updateUser = async (newUser) => {
-    return axios.put(`${USERS_API_URL}/${newUser.id}`);
+export const updateUser = (newUser) => {
+    return axios.put(`${USERS_API_URL}/${newUser.id}`, newUser);
 
 }
 export const deleteUser = async (id) => {

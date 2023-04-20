@@ -19,6 +19,7 @@ const userSlice = createSlice({
         [updateUserThunk.fulfilled]: (state, action) => {
         state.users = state.users.map((user) =>
         user.id === action.payload.id? action.payload : user);
+        console.log(action.payload);
         },
         [createUserThunk.fulfilled]: (state, action) => {
             state.users.push(action.payload);

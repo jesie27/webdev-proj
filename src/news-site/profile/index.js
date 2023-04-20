@@ -53,9 +53,9 @@ const ProfileComponent = () => {
                     <img className="rounded-circle" height={48} src=""/>
                     <div className="wd-nudge-up">{currentUser.bio}</div>
                     <div className= "wd-nudge-up mt-2">
-                        <i className="bi bi-geo-alt"></i>
+                        <i className="bi bi-geo-alt pe-2"></i>
                         {currentUser.location}
-                        <i className="bi bi-calendar-heart ps-4 pe-1"></i>
+                        <i className="bi bi-calendar-heart ps-4 pe-2"></i>
                         Joined {currentUser.dateJoined}
                     </div>
 
