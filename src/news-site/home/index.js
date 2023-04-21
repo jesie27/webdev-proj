@@ -17,7 +17,7 @@ const HomeComponent = () => {
     return (
         <div>
 
-            <h1>Home</h1>
+            <h1>News Site</h1>
             <div>
                 {currentUser && (
                     <div>
@@ -25,6 +25,7 @@ const HomeComponent = () => {
                     </div>
                 )}
             </div>
+            <h5>Here are the most viewed articles in the last 24 hours</h5>
             <ul className="list-group mt-3">
             {results.results && results.results.map((results) => (
                 <li className="list-group-item"  key={results.id}>

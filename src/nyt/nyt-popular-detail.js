@@ -6,7 +6,6 @@ function NytPopularDetailScreen() {
     const {id} = useParams();
     const[article, setArticle] = useState({});
     console.log('test');
-
     const fetchArticle = async () => {
         const response = await getArticle(id);
         setArticle(response);

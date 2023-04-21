@@ -20,6 +20,7 @@ function AdminScreen() {
                         <li key={user.id} className="list-group-item">
                             <div><span className="wd-bold">First Name: </span>{user.firstName}</div>
                             <div><span className="wd-bold">Last Name: </span>{user.lastName}</div>
+                            <div><span className="wd-bold">ID: </span>{user.id}</div>
 
                             <div><span className="wd-bold">Username: </span> {user.username}</div>
                             <div><span className="wd-bold">Password: </span> {user.password}</div>
