@@ -22,8 +22,12 @@ export const generalSearch = async (query)=> {
     return response.data.response;
 }
 
-export const getArticle = async(articleID) => {
-    const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/shared/${articleID}.json?&api-key=${NYT_KEY}`);
-return response.data.id;
-}
+// export const getArticle = async(articleID) => {
+//     const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/shared/${articleID}.json?&api-key=${NYT_KEY}`);
+// return response.data.id;
+// }
 
+export const getArticle = async(articleId) => {
+    const response = await axios.get(`${NYT_API}/articles/${articleId}?apikey=${NYT_KEY}`);
+return response.data.articles[0];
+}
