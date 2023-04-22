@@ -6,13 +6,11 @@ import ProfileComponent from "../news-site/profile/index.js";
 import NytSearchPopular from "../nyt/nyt-search-popular.js";
 import NytGeneralScreen from "../nyt/nyt-search-general.js";
 import NytPopularDetailScreen from "../nyt/nyt-popular-detail.js";
-import NytGeneralDetail from "../nyt/nyt-general-detail.js";
+import NytGeneralDetailScreen from "../nyt/nyt-general-detail.js";
 import EditProfileComponent from "./profile/edit-profile.js";
 import ProfileReducer from "./profile/profile-reducer.js";
 import LoginScreen from "./login/login-screen.js";
 import RegisterScreen from "./login/register-screen";
-
-
 import AdminScreen from "./admin/admin";
 
 import { configureStore }
@@ -45,7 +43,7 @@ export function News() {
                     <Route path="/news/general-search/:searchTerm" element={<NytGeneralScreen/>}>General Search</Route>
                     <Route path="/news/popular-search" element={<NytSearchPopular/>}>Popular Search</Route>
                     <Route path="/news/popular-article/:id" element={<NytPopularDetailScreen/>}></Route>
-                    <Route path="/news/general-article/:headline" element={<NytGeneralDetail/>}></Route>
+                    <Route path="/news/general-article/:headline" element={<NytGeneralDetailScreen/>}></Route>
 
                 </Routes>
             </div>

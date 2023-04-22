@@ -12,7 +12,6 @@ function NytGeneralScreen() {
         setResults(response);
         navigate(`/news/general-search/${search}`)
         console.log(response);
-        console.log('cat');
     }
     useEffect(() => {
         if(searchTerm) {
@@ -41,6 +40,9 @@ function NytGeneralScreen() {
                         </Link>
 
                         <div>{docs.byline.original}</div>
+                        {/*<Link to={`/news/general-article/${docs.headline.main}`}>*/}
+                        {/*    <div className="mb-2">{docs.abstract}</div>*/}
+                        {/*</Link>*/}
                         <Link to={`/news/general-article/${docs.headline.main}`}>
                             <div className="mb-2">{docs.abstract}</div>
                         </Link>
