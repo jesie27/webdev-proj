@@ -26,13 +26,18 @@ function NytGeneralDetailScreen() {
        // fetchArticle().then(response => setArticle(response));
        fetchArticle();
     }, []);
-    console.log(article);
-    //const  test = JSON.parse(JSON.stringify(article,null, 2));
+    //console.log(article);
+    const  test = JSON.parse(JSON.stringify(article,null, 2));
+    console.log(test);
     return(
         <div>
-            <h1>nyt general article detail screen </h1>
-            <h2>{headline}</h2>
-            <h3>{headline.abstract}</h3>
+            <Link to={article.web_url}><h2>{headline}</h2></Link>
+            <div>{article.pub_date}</div>
+            {/*<div>{test.byline.original}</div>*/}
+            <div>{}</div>
+            <div>{article.abstract}</div>
+            <div>{}</div>
+
             <button className="btn btn-success" >Like</button>
             <div>
 
