@@ -19,6 +19,7 @@ export const generalSearch = async (query)=> {
 &api-key=${NYT_KEY}`);
 
     console.log(response);
+
     return response.data.response;
 }
 
