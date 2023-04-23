@@ -26,7 +26,10 @@ function NytGeneralDetailScreen() {
        // fetchArticle().then(response => setArticle(response));
        fetchArticle();
     }, []);
-    console.log(article);
+    //console.log(article);
+    const  test = JSON.parse(JSON.stringify(article,null, 2));
+    console.log(test.data);
+    const filter = test.data;
     return(
         <div>
             <h1>nyt general article detail screen </h1>
