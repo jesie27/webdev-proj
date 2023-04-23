@@ -39,7 +39,7 @@ function NytGeneralDetailScreen() {
             <Link to={article.web_url}><h2>{headline}</h2></Link>
             <div className="mt-1">{article.pub_date}</div>
             {/*<div>{test.byline.original}</div>*/}
-            <div className="mt-1">{article.abstract}</div>
+            <div className="">{article.abstract}</div>
             <div>{}</div>
 
 

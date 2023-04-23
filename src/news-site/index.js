@@ -12,18 +12,19 @@ import ProfileReducer from "./profile/profile-reducer.js";
 import LoginScreen from "./login/login-screen.js";
 import RegisterScreen from "./login/register-screen";
 import AdminScreen from "./admin/admin";
-
+import currentUserContext from "./users/current-user-context";
 import { configureStore }
     from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
 import usersReducer from "./users/users-reducer";
+import CurrentUserContext from "./users/current-user-context";
 const store = configureStore(
     {reducer: {users: usersReducer}});
 export function News() {
 
     return(
         <Provider store={store}>
-
+        <CurrentUserContext>
         <div className="row mt-4">
             <div className="col-2 col-md-2 col-lg-1 col-xl-2">
                 <NavigationSidebar/>
@@ -48,6 +49,7 @@ export function News() {
                 </Routes>
             </div>
         </div>
+        </CurrentUserContext>
     </Provider>
     );
 }
