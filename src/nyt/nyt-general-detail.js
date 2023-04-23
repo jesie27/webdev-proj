@@ -18,20 +18,20 @@ function NytGeneralDetailScreen() {
         const response = userLikesArticle(currentUser.uid, headline);
         console.log(response);
     }
-    console.log("test");
     const fetchArticle = async () => {
         const response = await getArticle(headline);
         setArticle(response);}
 
     useEffect(() => {
-        fetchArticle().then(response =>  setArticle(response));
-      //  fetchArticle();
+       // fetchArticle().then(response => setArticle(response));
+       fetchArticle();
     }, []);
     console.log(article);
     return(
         <div>
             <h1>nyt general article detail screen </h1>
-            <h2>article</h2>
+            <h2>{headline}</h2>
+            <h3>{headline.response}</h3>
             <button className="btn btn-success" >Like</button>
             <div>
 

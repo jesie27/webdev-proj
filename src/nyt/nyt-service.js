@@ -28,10 +28,11 @@ export const generalSearch = async (query)=> {
 // }
 
 export const getArticle = async(headline) => {
-   // const response = await axios.get(`https://api.nytimes.com/svc/search/v2//articlesearch.json?&fq=headline.main:${headline}
+  //  const response = await axios.get(`https://api.nytimes.com/svc/search/v2//articlesearch.json?&fq=headline:(${headline})
 //&api-key=${NYT_KEY}`);
-  const response = fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${NYT_KEY}&fq=headline.main:${headline}`)
+    const response = await axios.get(`https://api.nytimes.com/svc/search/v2//articlesearch.json?&q=${headline})
+&api-key=${NYT_KEY}`);
+  //const response = fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${NYT_KEY}&fq=headline.main:(${headline})`)
 //const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=headline.main:(${headline})&api-key=${NYT_KEY}`);
-return response;
-    //return response.data;
+//return response;
 }
