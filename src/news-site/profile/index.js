@@ -3,17 +3,23 @@ import {useDispatch, useSelector} from "react-redux";
 import "../index.css"
 import {Link} from "react-router-dom";
 import {editProfileThunk, loginThunk, logoutThunk, profileThunk} from "../users/users-thunks";
-import {useNavigate} from "react-router-dom";
+import {useNavigate}  from "react-router-dom";
 import editProfile from "./edit-profile";
 import {current} from "@reduxjs/toolkit";
+import {findLikesByUserId} from "../likes/likes-service";
 
 const ProfileComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const [profile, setProfile] = useState(currentUser);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [likes, setLikes] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const fetchLikes = async() => {
+        const likes = await findLikesByUserId(currentUser.id);
+        setLikes(likes);
+    }
     useEffect(  () => {
         dispatch(profileThunk());
     }, []);
@@ -66,6 +72,10 @@ const ProfileComponent = () => {
                 dispatch(logoutThunk());
                 navigate("/news/login");
             }}>Logout</button>
+            <div>
+
+            </div>
+
             <div>
                 {!current &&(
                     <h2>Must log in to see profile screen</h2>
