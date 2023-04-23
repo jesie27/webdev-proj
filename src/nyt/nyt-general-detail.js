@@ -30,21 +30,21 @@ function NytGeneralDetailScreen() {
     return(
 
         <div>
-            {currentUser && (
-                    <div>
+            <div>
+                {currentUser && (
+                        <div>
 
-                        <h2>Welcome {currentUser.firstName}</h2>
-                    </div>
-                )}
+                            <h2>Welcome {currentUser.firstName}</h2>
+                        </div>
+                    )}
+            </div>
+
             <Link to={article.web_url}><h2>{headline}</h2></Link>
             <div className="mt-1">{article.pub_date}</div>
             {/*<div>{test.byline.original}</div>*/}
             <div className="">{article.abstract}</div>
-            <div>{}</div>
-
 
             <div>
-
                 {currentUser && (
                     <div>
                         <button className="btn btn-success mt-3" >Like</button>

@@ -2,9 +2,10 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {findAllUsersThunk} from "../users/users-thunks";
+
 import React from "react";
 function AdminScreen() {
-    const{currentUser,users} = useSelector((state) => state.users);
+    const{currentUser, users} = useSelector((state) => state.users);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
