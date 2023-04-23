@@ -11,13 +11,12 @@ function NytGeneralDetailScreen() {
     const {headline} = useParams();
     console.log({headline})
 
-    //const {id} = useParams();
     const {currentUser} = useSelector((state) => state.users);
     const [article, setArticle] = useState({})
-    const likeArticle = async() => {
-        const response = userLikesArticle(currentUser.uid, headline);
-        console.log(response);
-    }
+    // const likeArticle = async() => {
+    //     const response = userLikesArticle(currentUser.uid, headline);
+    //     console.log(response);
+    // }
     const fetchArticle = async () => {
         const response = await getArticle(headline);
         setArticle(response);}
@@ -26,7 +25,6 @@ function NytGeneralDetailScreen() {
        // fetchArticle().then(response => setArticle(response));
        fetchArticle();
     }, []);
-    //console.log(article);
     const  test = JSON.parse(JSON.stringify(article,null, 2));
     console.log(test);
     return(
