@@ -12,6 +12,7 @@ const EditProfileComponent = () => {
 
     const saveButtonHandler = () => {
         dispatch(updateUserThunk(profile));
+
         navigate('/news/profile');
         console.log(profile);
         console.log(profile.payload);
