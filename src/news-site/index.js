@@ -35,7 +35,7 @@ export function News() {
                 <Routes>
                     <Route path="/news/home" element={<HomeComponent/>}>Home</Route>
                     <Route path="/news/profile" element={<ProfileComponent/>}>Profile</Route>
-                    <Route path="/news/profile/:id" element={<ProfileComponent/>}>Profile</Route>
+                    <Route path="/news/profile/:userId" element={<ProfileComponent/>}>Profile</Route>
 
                     <Route path="/news/edit-profile" element={<EditProfileComponent/>}>Profile</Route>
                     <Route path="/news/login" element={<LoginScreen/>}>Login</Route>
