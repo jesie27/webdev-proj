@@ -11,10 +11,11 @@ const EditProfileComponent = () => {
     const navigate = useNavigate();
 
     const saveButtonHandler = () => {
+        console.log('Save')
+        console.log(profile);
         dispatch(updateUserThunk(profile));
 
         navigate('/news/profile');
-        console.log(profile);
         console.log(profile.payload);
     }
 

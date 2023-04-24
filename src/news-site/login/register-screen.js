@@ -19,7 +19,7 @@ function RegisterScreen () {
     const toggleRegister = () => {
         try {
             dispatch(registerThunk({username, password, firstName, lastName, dateOfBirth, location, role}));
-            navigate("/news/profile");
+            navigate("/news/profile/");
             console.log(currentUser.firstName);
 
         } catch (err) {
