@@ -18,6 +18,9 @@ const ProfileComponent = () => {
     const [likes, setLikes] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+   // console.log(currentUser);
+   //console.log(currentUser.firstName);
+    //console.log(profile);
     const fetchProfile = async  () => {
         if (userId) {
             const user = await findUserById(userId);
@@ -28,14 +31,16 @@ const ProfileComponent = () => {
         setProfile(response.payload);
     }
     const fetchLikes = async() => {
-        const likes = await findLikesByUserId(currentUser.id);
-        setLikes(likes);
+        //const likes = await findLikesByUserId(profile._id);
+      // setLikes(likes);
+        console.log(currentUser);
     }
     const loadScreen = async() => {
         await fetchProfile();
     }
     useEffect(  () => {
         dispatch(profileThunk());
+        fetchLikes();
         //loadScreen();
     }, []);
     const toggleEditProfile = () => {
@@ -79,27 +84,27 @@ const ProfileComponent = () => {
                         <i className="bi bi-calendar-heart ps-4 pe-2"></i>
                         Joined {currentUser.dateJoined}
                     </div>
-
+                    <button className="btn btn-danger wd-nudge-up mt-3" onClick={() => {
+                        dispatch(logoutThunk());
+                        navigate("/news/login");
+                    }}>Logout</button>
+                    <div>
+                        <h1>Likes</h1>
+                        <ul className="list-group">
+                            {likes.map((like) => (
+                                <li className="list-group-item">
+                                    <h3>{like.articleId}</h3>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
-                )}
-            </div>
-            <button className="btn btn-danger wd-nudge-up mt-3" onClick={() => {
-                dispatch(logoutThunk());
-                navigate("/news/login");
-            }}>Logout</button>
-            <div>
-                <h1>Likes</h1>
-                <ul className="list-group">
-                    {likes.map((like) => (
-                        <li className="list-group-item">
-                            <h3>{like.articleId}</h3>
-                        </li>
-                    ))}
-                </ul>
-            </div>
 
+                )}
+
+            </div>
             <div>
-                {!current &&(
+                {!currentUser &&(
                     <h2>Must log in to see profile screen</h2>
                 )}
             </div>
