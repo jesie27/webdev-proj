@@ -39,7 +39,7 @@ const ProfileComponent = () => {
         await fetchProfile();
     }
     useEffect(  () => {
-        dispatch(profileThunk());
+            dispatch(profileThunk());
         fetchLikes();
         //loadScreen();
     }, []);
@@ -56,6 +56,7 @@ const ProfileComponent = () => {
 
         return (
         <div>
+            <h1>Profile {userId}</h1>
             <div>
                 {currentUser && (
                 <div>
