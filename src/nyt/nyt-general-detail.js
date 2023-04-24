@@ -43,7 +43,7 @@ function NytGeneralDetailScreen() {
             <div className="mt-1">{article.pub_date}</div>
             {/*<div>{test.byline.original}</div>*/}
             <div className="">{article.abstract}</div>
-
+            <div>{/*article.lead_paragraph*/}</div>
             <div>
                 {currentUser && (
                     <div>

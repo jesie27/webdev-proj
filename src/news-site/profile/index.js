@@ -18,7 +18,7 @@ const ProfileComponent = () => {
     const [likes, setLikes] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const fetchProfile = async () => {
+    const fetchProfile = async  () => {
         if (userId) {
             const user = await findUserById(userId);
             setProfile(user);
