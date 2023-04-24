@@ -14,7 +14,7 @@ function NytGeneralDetailScreen() {
     const {currentUser} = useSelector((state) => state.users);
     const [article, setArticle] = useState({})
     const likeArticle = async() => {
-        const response = userLikesArticle(currentUser.uid, headline);
+        const response = userLikesArticle(currentUser._id, headline);
         console.log(response);
     }
     const fetchArticle = async () => {
@@ -47,7 +47,7 @@ function NytGeneralDetailScreen() {
             <div>
                 {currentUser && (
                     <div>
-                        <button className="btn btn-success mt-3" >Like</button>
+                        <button className="btn btn-success mt-3"  onClick={likeArticle}>Like</button>
                     </div>
                     )
 

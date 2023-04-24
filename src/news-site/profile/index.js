@@ -88,7 +88,14 @@ const ProfileComponent = () => {
                 navigate("/news/login");
             }}>Logout</button>
             <div>
-
+                <h1>Likes</h1>
+                <ul className="list-group">
+                    {likes.map((like) => (
+                        <li className="list-group-item">
+                            <h3>{like.articleId}</h3>
+                        </li>
+                    ))}
+                </ul>
             </div>
 
             <div>
