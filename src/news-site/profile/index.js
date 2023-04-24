@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "../index.css"
-import {Link} from "react-router-dom";
-import {editProfileThunk, loginThunk, logoutThunk, profileThunk} from "../users/users-thunks";
+import {Link, useParams} from "react-router-dom";
+import {logoutThunk, profileThunk, updateUserThunk} from "../users/users-thunks";
 import {useNavigate}  from "react-router-dom";
 import editProfile from "./edit-profile";
 import {current} from "@reduxjs/toolkit";
 import {findLikesByUserId} from "../likes/likes-service";
+import {findUserById} from "../users/users-service.js";
 
 const ProfileComponent = () => {
+    const {userId}= useParams();
     const {currentUser} = useSelector((state) => state.users)
     const [profile, setProfile] = useState(currentUser);
     const [username, setUsername] = useState("");
@@ -16,12 +18,25 @@ const ProfileComponent = () => {
     const [likes, setLikes] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const fetchProfile = async () => {
+        if (userId) {
+            const user = await findUserById(userId);
+            setProfile(user);
+            return;
+        }
+        const response = await dispatch(profileThunk());
+        setProfile(response.payload);
+    }
     const fetchLikes = async() => {
         const likes = await findLikesByUserId(currentUser.id);
         setLikes(likes);
     }
+    const loadScreen = async() => {
+        await fetchProfile();
+    }
     useEffect(  () => {
         dispatch(profileThunk());
+        //loadScreen();
     }, []);
     const toggleEditProfile = () => {
         try {
