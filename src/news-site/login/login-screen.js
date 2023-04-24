@@ -13,7 +13,8 @@ function LoginScreen () {
     const toggleLogin = () => {
         try {
             dispatch(loginThunk({username, password}));
-            navigate(`/news/profile/6445ae5767a55aa4b59d421e`);
+
+            navigate(`/news/profile`);
 
         } catch (err) {
             console.log(err);
