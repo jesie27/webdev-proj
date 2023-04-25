@@ -32,15 +32,16 @@ const ProfileComponent = () => {
     }
     const fetchLikes = async() => {
         //const likes = await findLikesByUserId(profile._id);
-      // setLikes(likes);
+       //setLikes(likes);
         console.log(currentUser);
+        console.log(profile);
     }
     const loadScreen = async() => {
         await fetchProfile();
+       await fetchLikes();
     }
     useEffect(  () => {
-            dispatch(profileThunk());
-        fetchLikes();
+            loadScreen();
         //loadScreen();
     }, []);
     const toggleEditProfile = () => {
