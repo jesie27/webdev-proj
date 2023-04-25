@@ -8,6 +8,7 @@ import editProfile from "./edit-profile";
 import {current} from "@reduxjs/toolkit";
 import {findLikesByUserId} from "../likes/likes-service";
 import {findUserById} from "../users/users-service.js";
+import {userFollowsUser} from "../follows/follows-service";
 
 const ProfileComponent = () => {
     const {userId}= useParams();
@@ -29,6 +30,9 @@ const ProfileComponent = () => {
         }
         const response = await dispatch(profileThunk());
         setProfile(response.payload);
+    }
+    const followUser = async() => {
+        //await userFollowsUser(currentUser._id, profile._id);
     }
     const fetchLikes = async() => {
         //const likes = await findLikesByUserId(profile._id);
@@ -58,6 +62,7 @@ const ProfileComponent = () => {
         return (
         <div>
             <h1>Profile {userId}</h1>
+            <button onClick={followUser}>Follow</button>
             <div>
                 {currentUser && (
                 <div>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const USERS_API = "http://localhost:4000/";
+const USERS_API = "http://localhost:4000/api/users";
 export const userFollowsUser = async (followerId, followedId) => {
     const response = await axios.post(
         `${USERS_API}/${followerId}/follows/${followedId}`

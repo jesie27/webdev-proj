@@ -14,6 +14,7 @@ function NytGeneralDetailScreen() {
     const {currentUser} = useSelector((state) => state.users);
     const [article, setArticle] = useState({})
     const likeArticle = async() => {
+        console.log(currentUser);
         const response = userLikesArticle(currentUser._id, headline);
         console.log(response);
     }
