@@ -9,7 +9,7 @@ export const findAllUsersThunk = createAsyncThunk('users/findAll', async() => {
 
 export const findUserByIdThunk = createAsyncThunk("users/findById",
         async (id) => {
-    const response = await findUserById(id);
+    const response = await userService.findUserById(id);
     return response.data;
         }
     )
@@ -17,8 +17,8 @@ export const findUserByIdThunk = createAsyncThunk("users/findById",
 
 export const createUserThunk = createAsyncThunk('users/create',
     async (user) => {
-    await userService.createUser(user);
-    return user;
+    const response = await userService.createUser(user);
+    return response.data;
 });
 
 export const updateUserThunk = createAsyncThunk('users/update',
