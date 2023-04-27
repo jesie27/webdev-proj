@@ -39,8 +39,7 @@ const ProfileComponent = () => {
         setProfile(response.payload);
     }
     const followUser = async() => {
-
-        //await userFollowsUser(currentUser._id, profile._id);
+        await userFollowsUser(currentUser._id, profile._id);
     }
     const fetchLikes = async() => {
         if(currentUser) {
@@ -74,13 +73,35 @@ if(profile) {
 
         return (
         <div>
-            {!currentUser &&  (
-                <div>
+        {/*    {*/}
+        {/*    if (!currentUser &&  profile) {*/}
+        {/*        <h1>{profile.firstName}</h1>*/}
+        {/*}*/}
 
-                    <h1> {userId} </h1>
+            {profile? <>
+                    <h1>{profile.firstName} {profile.lastName}</h1>
+                <button className="float-end btn btn-success" onClick={followUser}>Follow</button>
+                    <div className=""><img className="rounded-circle" height={150} width={150}
+                                                      src={(require('../images/pink.jpg'))}/></div>
+                    <div className="wd-gray">{profile.handle}</div>
 
-                    <button className="float-end btn btn-success" onClick={followUser}>Follow</button>
-                </div> )}
+
+
+
+
+
+
+                </>
+                :""}
+
+            {/*{!currentUser &&  (*/}
+            {/*    <div>*/}
+
+            {/*        <h1> {userId}*/}
+            {/*        </h1>*/}
+
+            {/*        <button className="float-end btn btn-success" onClick={followUser}>Follow</button>*/}
+            {/*    </div> )}*/}
 
             <div>
                 {currentUser && (
@@ -101,7 +122,7 @@ if(profile) {
                     <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
                                                       src={(require('../images/bridge.jpg'))}/></div>
                     <div className="wd-bold wd-nudge-up">{currentUser.firstName} {currentUser.lastName}</div>
-                    <div className="wd-gray wd-nudge-up">{currentUser.handle}</div>
+                    <div className="wd-gray wd-nudge-up">@{currentUser.handle}</div>
                     <img className="rounded-circle" height={48} src=""/>
                     <div className="wd-nudge-up mb-3">{currentUser.bio}</div>
                     <div className= "wd-nudge-up mt-2">
@@ -129,11 +150,11 @@ if(profile) {
                 )}
 
             </div>
-            <div>
-                {!currentUser &&(
-                    <h2>Must log in to see profile screen</h2>
-                )}
-            </div>
+            {/*<div>*/}
+            {/*    {!currentUser &&(*/}
+            {/*        <h2>Must log in to see profile screen</h2>*/}
+            {/*    )}*/}
+            {/*</div>*/}
 
         </div>
     );
