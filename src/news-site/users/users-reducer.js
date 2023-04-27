@@ -38,7 +38,6 @@ const userSlice = createSlice({
         },
         [findAllUsersThunk.rejected]: (state, action) => {
             state.loading = false;
-
             state.error = action.error.message;
         },
         [findUserByIdThunk.pending]: (state, action) => {
@@ -58,7 +57,6 @@ const userSlice = createSlice({
         [profileThunk]: (state, action) => {
             state.currentUser = action.payload;
         },
-
 
         [registerThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload;

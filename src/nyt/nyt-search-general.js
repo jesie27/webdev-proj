@@ -25,7 +25,7 @@ function NytGeneralScreen() {
             <div>Search for NYT articles using keywords</div>
 
             <input
-                className="form-control w-50"
+                className="form-control w-80"
                 type="text"
                 value={search}
                 onChange={(e)=> setSearch(e.target.value)}
@@ -46,7 +46,6 @@ function NytGeneralScreen() {
                         <Link to={`/news/general-article/${docs.headline.main}`}>
                             <div className="mb-2">{docs.abstract}</div>
                         </Link>
-                        <div><img src="${docs.multimedia[0].url}"/></div>
                     </li>))}
 
             </ul>

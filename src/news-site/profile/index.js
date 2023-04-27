@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "../index.css"
 import {Link, useParams} from "react-router-dom";
-import {logoutThunk, profileThunk, updateUserThunk} from "../users/users-thunks";
+import {logoutThunk, profileThunk, findUserByIdThunk} from "../users/users-thunks";
 import {useNavigate}  from "react-router-dom";
 import editProfile from "./edit-profile";
 import {current} from "@reduxjs/toolkit";
@@ -14,6 +14,7 @@ const ProfileComponent = () => {
     const {userId}= useParams();
     const {currentUser} = useSelector((state) => state.users)
     const [profile, setProfile] = useState(currentUser);
+   // const [visitProfile, setVisitProfile] = ({});
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [likes, setLikes] = useState([]);
@@ -22,6 +23,10 @@ const ProfileComponent = () => {
    // console.log(currentUser);
    //console.log(currentUser.firstName);
     //console.log(profile);
+    // const constFindUserProfile = async (userId) => {
+    //     const response = await findUserByIdThunk(userId);
+    //     setVisitProfile(response)
+    // }
     const fetchProfile = async  () => {
         if (userId) {
             const user = await findUserById(userId);
@@ -32,6 +37,7 @@ const ProfileComponent = () => {
         setProfile(response.payload);
     }
     const followUser = async() => {
+
         //await userFollowsUser(currentUser._id, profile._id);
     }
     const fetchLikes = async() => {
@@ -62,12 +68,12 @@ const ProfileComponent = () => {
         return (
         <div>
             <h1>Profile {userId}</h1>
-            <button onClick={followUser}>Follow</button>
+            <button className="float-end btn btn-success" onClick={followUser}>Follow</button>
             <div>
                 {currentUser && (
                 <div>
                     <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>
-                    <div className="mt-2"><img className="" height={300} width={600}
+                    <div className="mt-2"><img className="" height={300} width={1000}
                                                src={require('../images/ocean.jpg')}/>
                     </div>
 
