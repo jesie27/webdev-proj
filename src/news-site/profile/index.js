@@ -4,7 +4,6 @@ import "../index.css"
 import {Link, useParams} from "react-router-dom";
 import {logoutThunk, profileThunk, findUserByIdThunk} from "../users/users-thunks";
 import {useNavigate}  from "react-router-dom";
-import editProfile from "./edit-profile";
 import {current} from "@reduxjs/toolkit";
 import {findLikesByUserId} from "../likes/likes-service";
 import {findUserById} from "../users/users-service.js";
@@ -12,9 +11,8 @@ import {userFollowsUser} from "../follows/follows-service";
 
 const ProfileComponent = () => {
     const {userId}= useParams();
-    const {currentUser} = useSelector((state) => state.users)
+    const {currentUser} = useSelector((state) => state)
     const [profile, setProfile] = useState(currentUser);
-   // const [visitProfile, setVisitProfile] = ({});
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [likes, setLikes] = useState([]);
@@ -27,7 +25,7 @@ const ProfileComponent = () => {
     //     const response = await findUserByIdThunk(userId);
     //     setVisitProfile(response)
     // }
-    const fetchProfile = async  () => {
+    const fetchProfile = async () => {
         if (userId) {
             const user = await findUserById(userId);
             setProfile(user);
@@ -41,8 +39,9 @@ const ProfileComponent = () => {
         //await userFollowsUser(currentUser._id, profile._id);
     }
     const fetchLikes = async() => {
-        //const likes = await findLikesByUserId(profile._id);
-       //setLikes(likes);
+
+       // const likes = await findLikesByUserId(profile._id);
+      // setLikes(likes);
         console.log(currentUser);
         console.log(profile);
     }

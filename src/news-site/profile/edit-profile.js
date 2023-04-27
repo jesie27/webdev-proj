@@ -14,9 +14,7 @@ const EditProfileComponent = () => {
         console.log('Save')
         console.log(profile);
         dispatch(updateUserThunk(profile));
-
         navigate('/news/profile');
-        console.log(profile.payload);
     }
 
     return (
