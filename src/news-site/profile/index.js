@@ -7,10 +7,11 @@ import {useNavigate}  from "react-router-dom";
 import {current} from "@reduxjs/toolkit";
 import {findLikesByUserId} from "../likes/likes-service";
 import {findUserById} from "../users/users-service.js";
-import {userFollowsUser} from "../follows/follows-service";
+import {userFollowsUser, findFollowsByFollowedId, findFollowsByFollowerId} from "../follows/follows-service";
 
 const ProfileComponent = () => {
     const {userId}= useParams();
+    console.log(userId);
     const {currentUser} = useSelector((state) => state.users)
     const [profile, setProfile] = useState(currentUser);
     const [username, setUsername] = useState("");
@@ -21,16 +22,17 @@ const ProfileComponent = () => {
    // console.log(currentUser);
    //console.log(currentUser.firstName);
     //console.log(profile);
-    // const constFindUserProfile = async (userId) => {
-    //     const response = await findUserByIdThunk(userId);
-    //     setVisitProfile(response)
-    // }
+    const constFindUserProfile = async (userId) => {
+        const response = await findUserByIdThunk(userId);
+            return response.data;
+    }
     const fetchProfile = async () => {
         if (userId) {
             const user = await findUserById(userId);
             setProfile(user);
             return;
         }
+        //await dispatch(profileThunk());
         const response = await dispatch(profileThunk());
         setProfile(response.payload);
     }
@@ -52,7 +54,7 @@ const ProfileComponent = () => {
     useEffect(  () => {
             loadScreen();
         //loadScreen();
-    }, []);
+    }, [userId]);
     const toggleEditProfile = () => {
         try {
             //dispatch(editProfileThunk({username, password}));
@@ -66,8 +68,12 @@ const ProfileComponent = () => {
 
         return (
         <div>
-            <h1>Profile {userId}</h1>
-            <button className="float-end btn btn-success" onClick={followUser}>Follow</button>
+            {!currentUser && (
+                <div>
+                    <h1> {userId} </h1>
+                    <button className="float-end btn btn-success" onClick={followUser}>Follow</button>
+                </div> )}
+
             <div>
                 {currentUser && (
                 <div>

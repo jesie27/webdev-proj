@@ -14,7 +14,7 @@ function LoginScreen () {
         try {
             dispatch(loginThunk({username, password}));
 
-            navigate(`/news/profile`);
+            navigate(`/news/profile/${currentUser._id}`);
 
         } catch (err) {
             console.log(err);

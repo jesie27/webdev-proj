@@ -10,10 +10,11 @@ const EditProfileComponent = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const saveButtonHandler = () => {
+
+    const saveButtonHandler = async () => {
         console.log('Save')
         console.log(profile);
-        dispatch(updateUserThunk(profile));
+        await dispatch(updateUserThunk(profile));
         navigate('/news/profile');
     }
 
@@ -90,6 +91,19 @@ const EditProfileComponent = () => {
                             setProfile({
                                 ...profile,
                                 lastName: e.target.value,
+                            })
+                        }
+                    />
+                    <br/>
+
+                    <label className="wd-nudge-up pe-2 mt-3">Role</label>
+                    <input
+                        className="wd-nudge-up"
+                        placeholder={profile.role}
+                        onChange={(e) =>
+                            setProfile({
+                                ...profile,
+                                role: e.target.value,
                             })
                         }
                     />
