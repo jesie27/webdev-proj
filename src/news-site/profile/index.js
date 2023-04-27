@@ -11,7 +11,7 @@ import {userFollowsUser} from "../follows/follows-service";
 
 const ProfileComponent = () => {
     const {userId}= useParams();
-    const {currentUser} = useSelector((state) => state)
+    const {currentUser} = useSelector((state) => state.users)
     const [profile, setProfile] = useState(currentUser);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
