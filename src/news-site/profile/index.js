@@ -21,19 +21,21 @@ const ProfileComponent = () => {
     const navigate = useNavigate();
    // console.log(currentUser);
    //console.log(currentUser.firstName);
-    //console.log(profile);
+   // console.log(profile);
     const constFindUserProfile = async (userId) => {
         const response = await findUserByIdThunk(userId);
             return response.data;
     }
     const fetchProfile = async () => {
         if (userId) {
+            console.log(userId);
             const user = await findUserById(userId);
             setProfile(user);
             return;
         }
         //await dispatch(profileThunk());
         const response = await dispatch(profileThunk());
+        console.log(response);
         setProfile(response.payload);
     }
     const followUser = async() => {
@@ -41,10 +43,11 @@ const ProfileComponent = () => {
         //await userFollowsUser(currentUser._id, profile._id);
     }
     const fetchLikes = async() => {
-
-      //  const likes = await findLikesByUserId(currentUser._id);
-     //  setLikes(likes);
-        console.log(currentUser);
+        if(currentUser) {
+      const likes = await findLikesByUserId(currentUser._id);
+            setLikes(likes);
+        }
+        console.log(likes);
         //console.log(profile);
     }
     const loadScreen = async() => {
@@ -64,13 +67,18 @@ const ProfileComponent = () => {
             console.log(err);
         }
     }
-
+    console.log(profile);
+if(profile) {
+    console.log(profile.firstName);
+}
 
         return (
         <div>
-            {!currentUser && (
+            {!currentUser &&  (
                 <div>
+
                     <h1> {userId} </h1>
+
                     <button className="float-end btn btn-success" onClick={followUser}>Follow</button>
                 </div> )}
 
