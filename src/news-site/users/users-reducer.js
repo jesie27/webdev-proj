@@ -55,7 +55,7 @@ const userSlice = createSlice({
             state.currentUser = null;
         },
 
-        [profileThunk]: (state, action) => {
+        [profileThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload;
         },
 

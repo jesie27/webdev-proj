@@ -40,10 +40,10 @@ const ProfileComponent = () => {
     }
     const fetchLikes = async() => {
 
-       // const likes = await findLikesByUserId(profile._id);
-      // setLikes(likes);
+      //  const likes = await findLikesByUserId(currentUser._id);
+     //  setLikes(likes);
         console.log(currentUser);
-        console.log(profile);
+        //console.log(profile);
     }
     const loadScreen = async() => {
         await fetchProfile();

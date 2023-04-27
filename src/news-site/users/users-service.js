@@ -28,8 +28,8 @@ export const login = (user) => {
     return api.post(`${USERS_API_URL}/login`, user);
 }
 
-export const logout = async () => {
-    return api.post(`${USERS_API_URL}/logout `)
+export const logout =  () => {
+    return api.post(`${USERS_API_URL}/logout`)
 }
 
 export const register = (user) => {
