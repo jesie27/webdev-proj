@@ -11,3 +11,7 @@ export const findLikesByUserId = async(userId) => {
     const response = await axios.get (`${USERS_API}/${userId}/likes`);
     return response.data;
 }
+export const findLikersByArticle = async(articleId) => {
+    const response = await axios.get (`${USERS_API}/${articleId}/likers`);
+    return response.data;
+}

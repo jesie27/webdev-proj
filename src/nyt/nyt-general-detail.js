@@ -1,15 +1,18 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {Link} from "react-router-dom";
 import React from "react";
 import {useEffect, useState} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {current} from "@reduxjs/toolkit";
-import {userLikesArticle} from "../news-site/likes/likes-service";
+import {findLikersByArticle, findLikesByUserId, userLikesArticle} from "../news-site/likes/likes-service";
 import {getArticle} from "./nyt-service";
 
 function NytGeneralDetailScreen() {
     const {headline} = useParams();
     console.log({headline})
+    const [likers, setLikers] = useState([]);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const {currentUser} = useSelector((state) => state.users);
     const [article, setArticle] = useState({})
@@ -22,9 +25,17 @@ function NytGeneralDetailScreen() {
         const response = await getArticle(headline);
         setArticle(response);}
 
-    useEffect(() => {
+    const fetchLikers = async() => {
+        // if(currentUser) {
+         const likers = await findLikersByArticle(headline);
+         setLikers(likers);
+        // }
+        console.log(likers);
+    }
+        useEffect(() => {
        // fetchArticle().then(response => setArticle(response));
        fetchArticle();
+       fetchLikers();
     }, []);
     const  test = JSON.parse(JSON.stringify(article,null, 2));
     console.log(test);
@@ -51,8 +62,18 @@ function NytGeneralDetailScreen() {
                         <button className="btn btn-success mt-3"  onClick={likeArticle}>Like</button>
                     </div>
                     )
-
                 }
+            </div>
+
+            <div>
+                <h1>Likers</h1>
+                <ul className="list-group">
+                    {likers.map((liker) => (
+                        <li className="list-group-item">
+                            <Link to = {`http://localhost:3000/news/profile/${liker.userId}`}><h4><i className="bi bi-heart-fill"></i> {liker.userId}</h4></Link>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     )
