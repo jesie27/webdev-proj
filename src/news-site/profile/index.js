@@ -49,6 +49,8 @@ const ProfileComponent = () => {
         console.log(likes);
         //console.log(profile);
     }
+
+
     const loadScreen = async() => {
         await fetchProfile();
        await fetchLikes();
@@ -78,30 +80,6 @@ if(profile) {
         {/*        <h1>{profile.firstName}</h1>*/}
         {/*}*/}
 
-            {profile? <>
-                    <h1>{profile.firstName} {profile.lastName}</h1>
-                <button className="btn btn-success" onClick={followUser}>Follow</button>
-                    <div className="mt-2"><img className="" height={350} width={1000}
-                                               src={require('../images/seaport.jpg')}/>
-                    </div>
-                    <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                                      src={(require('../images/grassnola.jpg'))}/></div>
-                    <div className="wd-gray wd-nudge-up">{profile.handle}</div>
-
-
-                    <div className="wd-nudge-up mb-3">{profile.bio}</div>
-                    <div className= "wd-nudge-up mt-2">
-                        <i className="bi bi-geo-alt pe-2"></i>
-                        {profile.location}
-                        <i className="bi bi-calendar-heart ps-4 pe-2"></i>
-                        Joined {profile.dateJoined}
-                    </div>
-
-
-
-
-                </>
-                :""}
 
 
             <div>
@@ -149,6 +127,29 @@ if(profile) {
                 </div>
 
                 )}
+                {!currentUser && (
+                    <div>
+                {profile? <>
+                        <h1>{profile.firstName} {profile.lastName}</h1>
+                        <button className="btn btn-success" onClick={followUser}>Follow</button>
+                        <div className="mt-2"><img className="" height={350} width={1000}
+                                                   src={require('../images/seaport.jpg')}/>
+                        </div>
+                        <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
+                                                          src={(require('../images/grassnola.jpg'))}/></div>
+                        <div className="wd-gray wd-nudge-up">{profile.handle}</div>
+
+
+                        <div className="wd-nudge-up mb-3">{profile.bio}</div>
+                        <div className= "wd-nudge-up mt-2">
+                            <i className="bi bi-geo-alt pe-2"></i>
+                            {profile.location}
+                            <i className="bi bi-calendar-heart ps-4 pe-2"></i>
+                            Joined {profile.dateJoined}
+                        </div>
+                    </>
+                    :""}
+                    </div>)}
 
             </div>
             {/*<div>*/}
