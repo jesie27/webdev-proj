@@ -181,8 +181,13 @@ const ProfileComponent = () => {
                                          <div className="mt-2"><img className="" height={350} width={1000}
                                                                     src={require('../images/seaport.jpg')}/>
                                          </div>
-                                         <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                                                           src={require('./corgi-center.jpg')}/></div>
+                                         {profile.photo ? <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
+                                                                                            src={require(`${profile.photo}`)}/></div>
+                                             :
+
+                                             <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
+                                             src={require("./grassnola.jpg")}/></div> }
+
                                          <div className="wd-gray wd-nudge-up">{profile.handle}</div>
 
 

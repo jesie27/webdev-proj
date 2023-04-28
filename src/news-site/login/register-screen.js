@@ -19,8 +19,7 @@ function RegisterScreen () {
     const navigate = useNavigate();
     const toggleRegister = () => {
         try {
-
-            dispatch(registerThunk({username, password, firstName, lastName, dateOfBirth, location, role}));
+            dispatch(registerThunk({username, password, firstName, lastName, dateOfBirth, location, role, photo}));
             navigate("/news/profile/");
             console.log(currentUser.firstName);
 
@@ -29,9 +28,6 @@ function RegisterScreen () {
         }
     }
 
-    const onOptionChange = e => {
-        setRole(e.value)
-    }
     return (
         <div>
 
@@ -130,7 +126,7 @@ function RegisterScreen () {
                         type="text"
                         id="photo"
                         className = "form-control ms-2"
-                        value = {"./corgi-center.jpg"}
+                        value = {photo}
                         onChange={(e) => {
                             setPhoto(e.target.value);
                         }}
