@@ -1,10 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import {useLocation} from "react-router";
 import {useSelector} from "react-redux";
 
 const NavigationSidebar = () => {
     const currentUser = useSelector((state) => state.users);
+    console.log(currentUser);
+    const getUser= ()=> {
+            const id = currentUser._id;
+            console.log(currentUser)
+            console.log(currentUser._id);
+        }
+
+
+    getUser();
+
     const {pathname} = useLocation();
     const paths = pathname.split('/')
     const active = paths[2];
