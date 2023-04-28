@@ -182,7 +182,7 @@ const ProfileComponent = () => {
                                                                     src={require('../images/seaport.jpg')}/>
                                          </div>
                                          <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                                                           src={require(`${profile.photo}`)}/></div>
+                                                                           src={require('./corgi-center.jpg')}/></div>
                                          <div className="wd-gray wd-nudge-up">{profile.handle}</div>
 
 
@@ -191,8 +191,8 @@ const ProfileComponent = () => {
                                              <i className="bi bi-geo-alt pe-2"></i>
                                              {profile.location}
                                              <i className="bi bi-calendar-heart ps-4 pe-2"></i>
-                                             Joined {profile.dateJoined}</div>
-                                         <div>
+                                             Joined April 2023</div>
+                                         <div className="mb-5">
                                              <h1>Likes</h1>
                                              <ul className="list-group">
                                                  {likes.map((like) => (
@@ -223,7 +223,7 @@ const ProfileComponent = () => {
                                     {profile.location}
                                     <i className="bi bi-calendar-heart ps-4 pe-2"></i>
                                     Joined {profile.dateJoined}</div>
-                                <div>
+                                <div className="mb-5">
                                     <h1>Likes</h1>
                                     <ul className="list-group">
                                         {likes.map((like) => (

@@ -18,6 +18,7 @@ const NavigationSidebar = () => {
     const {pathname} = useLocation();
     const paths = pathname.split('/')
     const active = paths[2];
+    const userId = paths[3];
     return (
     <div className="list-group">
 

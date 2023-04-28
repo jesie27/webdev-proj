@@ -74,7 +74,7 @@ function RegisterScreen () {
             </div>
 
 
-            <div>
+            <div className="mb-2">
                 <label htmlFor="lastName" >Last Name</label>
                 <input
                     type="text"
@@ -87,7 +87,7 @@ function RegisterScreen () {
                 />
             </div>
 
-            <div>
+            <div className="mb-2">
                 <label htmlFor="birthday" >Date of Birth</label>
                 <input
                     type="text"
@@ -99,8 +99,7 @@ function RegisterScreen () {
                     }}
                 />
             </div>
-
-            <div>
+            <div className="mb-2">
                 <label htmlFor="location" >Location</label>
                 <input
                     type="text"
@@ -124,9 +123,23 @@ function RegisterScreen () {
                         setRole(e.target.value);
                     }}
                 />
+                <div className="mb-2"></div>
+                <div>
+                    <label htmlFor="photo" >Enter photo URL</label>
+                    <input
+                        type="text"
+                        id="photo"
+                        className = "form-control ms-2"
+                        value = {"./corgi-center.jpg"}
+                        onChange={(e) => {
+                            setPhoto(e.target.value);
+                        }}
+                    />
+                </div>
 
 
-                {/*<input*/}
+
+                    {/*<input*/}
                 {/*type="radio" value="WRITER" id="radio-writer" name="radio-role"*/}
                 {/*/>*/}
                 {/*<label htmlFor="radio-writer" className="pe-4 ms-1">*/}
