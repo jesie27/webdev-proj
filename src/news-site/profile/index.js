@@ -18,6 +18,8 @@ const ProfileComponent = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [likes, setLikes] = useState([]);
+    const [following, setFollowing] = useState([]);
+    const [follows, setFollows] =useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
    // console.log(currentUser);
@@ -60,12 +62,20 @@ const ProfileComponent = () => {
         // console.log(visitingLikes);
     }
 
+    const fetchFollowing = async() => {
+        const following = await findFollowsByFollowerId(profile._id);
+        setFollowing(following);
 
+    }
     const loadScreen = async() => {
         await fetchProfile();
        await fetchLikes();
        await constFindUserProfile();
        await fetchVisitingLikes();
+       if (profile) {
+           await fetchFollowing();
+
+       }
     }
     useEffect(  () => {
             loadScreen();
@@ -122,10 +132,11 @@ const ProfileComponent = () => {
                                     <i className="bi bi-calendar-heart ps-4 pe-2"></i>
                                     Joined {currentUser.dateJoined}
                                 </div>
+                                <div>
                                 <button className="btn btn-danger wd-nudge-up mt-3" onClick={() => {
                                     dispatch(logoutThunk());
                                     navigate("/news/login");
-                                }}>Logout</button>
+                                }}>Logout</button></div>
                                 <div>
                                     <h1>Likes</h1>
                                     <ul className="list-group">
@@ -136,6 +147,17 @@ const ProfileComponent = () => {
                                         ))}
                                     </ul>
                                 </div>
+                                {/*<div>*/}
+                                {/*    <h1>Following</h1>*/}
+                                {/*        <ul className="list-group">*/}
+                                {/*            {following.map((follow) => (*/}
+                                {/*                <li className="list-group-item">*/}
+                                {/*                    <h4>{follow.follower}</h4>*/}
+                                {/*                    <h4>{follow.followed}</h4>*/}
+                                {/*                </li>*/}
+                                {/*            ))}*/}
+                                {/*        </ul>*/}
+                                {/*</div>*/}
                             </>
 
                             :

@@ -21,7 +21,8 @@ function NytGeneralScreen() {
     );
     return (
         <div>
-            <h1>General NYT Article Search</h1>
+            <img className="rounded-circle" height={140} width={700}
+                 src={require('./nyt.jpg')}/>
             <div>Search for NYT articles using keywords</div>
 
             <input
@@ -50,8 +51,8 @@ function NytGeneralScreen() {
 
             </ul>
 
-            <pre>{JSON.stringify(results, null, 2)}
-            </pre>
+            {/*<pre>{JSON.stringify(results, null, 2)}*/}
+            {/*</pre>*/}
         </div>
     )
 }

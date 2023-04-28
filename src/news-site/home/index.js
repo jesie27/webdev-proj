@@ -16,8 +16,8 @@ const HomeComponent = () => {
 
     return (
         <div>
-
-            <h1>News Site</h1>
+            <img className="rounded-circle" height={160} width={800}
+            src={require('./nyt.jpg')}/>
             <div>
                 {currentUser && (
                     <div>
