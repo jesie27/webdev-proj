@@ -14,6 +14,7 @@ const ProfileComponent = () => {
     console.log(userId);
     const {currentUser} = useSelector((state) => state.users)
     const [profile, setProfile] = useState(currentUser);
+    const [visiting, setVisting] = useState({});
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [likes, setLikes] = useState([]);
@@ -25,6 +26,7 @@ const ProfileComponent = () => {
     const constFindUserProfile = async (userId) => {
         const response = await findUserByIdThunk(userId);
             return response.data;
+            setVisting(response.data);
     }
     const fetchProfile = async () => {
         if (userId) {
@@ -54,6 +56,7 @@ const ProfileComponent = () => {
     const loadScreen = async() => {
         await fetchProfile();
        await fetchLikes();
+       await constFindUserProfile();
     }
     useEffect(  () => {
             loadScreen();
@@ -72,17 +75,13 @@ const ProfileComponent = () => {
 if(profile) {
     console.log(profile.firstName);
 }
+    console.log(visiting);
+
 
         return (
         <div>
-        {/*    {*/}
-        {/*    if (!currentUser &&  profile) {*/}
-        {/*        <h1>{profile.firstName}</h1>*/}
-        {/*}*/}
-
-
-
             <div>
+
                 {currentUser && (
                 <div>
                     <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>
@@ -133,29 +132,83 @@ if(profile) {
 
                 )}
 
-                {!currentUser && (
-                    <div>
-                {profile? <>
-                        <h1>{profile.firstName} {profile.lastName}</h1>
-                        <button className="btn btn-success" onClick={followUser}>Follow</button>
-                        <div className="mt-2"><img className="" height={350} width={1000}
-                                                   src={require('../images/seaport.jpg')}/>
-                        </div>
-                        <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                                          src={require(`${profile.photo}`)}/></div>
-                        <div className="wd-gray wd-nudge-up">{profile.handle}</div>
+
+                <div>
+                    {profile ?
+                        <>
+                            {currentUser?
+                             <>
+                                 {currentUser._id == userId ?
+                                     ""
+
+                                     :   <>
+                                            <h1>{profile.firstName} {profile.lastName}</h1>
+                                            <button className="btn btn-success" onClick={followUser}>Follow</button>
+                                         <div className="mt-2"><img className="" height={350} width={1000}
+                                                                    src={require('../images/seaport.jpg')}/>
+                                         </div>
+                                         <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
+                                                                           src={require(`${profile.photo}`)}/></div>
+                                         <div className="wd-gray wd-nudge-up">{profile.handle}</div>
 
 
-                        <div className="wd-nudge-up mb-3">{profile.bio}</div>
-                        <div className= "wd-nudge-up mt-2">
-                            <i className="bi bi-geo-alt pe-2"></i>
-                            {profile.location}
-                            <i className="bi bi-calendar-heart ps-4 pe-2"></i>
-                            Joined {profile.dateJoined}
-                        </div>
-                    </>
-                    :""}
-                    </div>)}
+                                         <div className="wd-nudge-up mb-3">{profile.bio}</div>
+                                         <div className= "wd-nudge-up mt-2">
+                                             <i className="bi bi-geo-alt pe-2"></i>
+                                             {profile.location}
+                                             <i className="bi bi-calendar-heart ps-4 pe-2"></i>
+                                             Joined {profile.dateJoined}</div>
+                                        </>
+                                 }
+                            </>
+                                :
+                            <>
+                                <h1>{profile.firstName} {profile.lastName}</h1>
+                                <button className="btn btn-success" onClick={followUser}>Follow</button>
+                                <div className="mt-2"><img className="" height={350} width={1000}
+                                                           src={require('../images/seaport.jpg')}/>
+                                </div>
+                                <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
+                                                                  src={require(`${profile.photo}`)}/></div>
+                                <div className="wd-gray wd-nudge-up">{profile.handle}</div>
+
+
+                                <div className="wd-nudge-up mb-3">{profile.bio}</div>
+                                <div className= "wd-nudge-up mt-2">
+                                    <i className="bi bi-geo-alt pe-2"></i>
+                                    {profile.location}
+                                    <i className="bi bi-calendar-heart ps-4 pe-2"></i>
+                                    Joined {profile.dateJoined}</div>
+                            </>
+                            }
+
+                        </>
+                        :""}
+                </div>
+
+                {/*{!currentUser && (*/}
+                {/*    <div>*/}
+                {/*{profile? <>*/}
+                {/*        <h1>{profile.firstName} {profile.lastName}</h1>*/}
+                {/*        <button className="btn btn-success" onClick={followUser}>Follow</button>*/}
+                {/*        <div className="mt-2"><img className="" height={350} width={1000}*/}
+                {/*                                   src={require('../images/seaport.jpg')}/>*/}
+                {/*        </div>*/}
+                {/*        <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}*/}
+                {/*                                          src={require(`${profile.photo}`)}/></div>*/}
+                {/*        <div className="wd-gray wd-nudge-up">{profile.handle}</div>*/}
+
+
+                {/*        <div className="wd-nudge-up mb-3">{profile.bio}</div>*/}
+                {/*        <div className= "wd-nudge-up mt-2">*/}
+                {/*            <i className="bi bi-geo-alt pe-2"></i>*/}
+                {/*            {profile.location}*/}
+                {/*            <i className="bi bi-calendar-heart ps-4 pe-2"></i>*/}
+                {/*            Joined {profile.dateJoined}*/}
+                {/*        </div>*/}
+                {/*    </>*/}
+                {/*    :""}*/}
+                {/*    </div>)}*/}
 
             </div>
             {/*<div>*/}
