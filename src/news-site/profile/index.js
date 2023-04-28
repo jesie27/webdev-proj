@@ -86,7 +86,7 @@ if(profile) {
                 {currentUser && (
                 <div>
                     <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>
-                    <div className="mt-2"><img className="" height={300} width={1000}
+                    <div className="mt-2"><img className="" height={300} width={1050}
                                                src={require('../images/ocean.jpg')}/>
                     </div>
 
