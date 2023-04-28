@@ -132,6 +132,7 @@ if(profile) {
                 </div>
 
                 )}
+
                 {!currentUser && (
                     <div>
                 {profile? <>
@@ -141,7 +142,7 @@ if(profile) {
                                                    src={require('../images/seaport.jpg')}/>
                         </div>
                         <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                                          src={(require('../images/grassnola.jpg'))}/></div>
+                                                          src={require(`${profile.photo}`)}/></div>
                         <div className="wd-gray wd-nudge-up">{profile.handle}</div>
 
 
