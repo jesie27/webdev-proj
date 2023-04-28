@@ -119,7 +119,7 @@ if(profile) {
                         <ul className="list-group">
                             {likes.map((like) => (
                                 <li className="list-group-item">
-                                    <h4><i className="bi bi-heart-fill"></i> {like.articleId}</h4>
+                                    <Link to = {`http://localhost:3000/news/general-article/${like.articleId}`}><h4><i className="bi bi-heart-fill"></i> {like.articleId}</h4></Link>
                                 </li>
                             ))}
                         </ul>
