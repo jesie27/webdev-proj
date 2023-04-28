@@ -81,56 +81,108 @@ if(profile) {
         return (
         <div>
             <div>
+                {currentUser ?
+                    <>
+                        {currentUser._id == userId ?
+                            <>
+                                <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>
+                                <div className="mt-2"><img className="" height={300} width={1050}
+                                                           src={require('../images/ocean.jpg')}/>
+                                </div>
+                                <div className="wd-button mt-2">
+                                    <Link to={'/news/edit-profile'}>
+                                        <button className="btn btn-primary rounded-4">Edit</button>
+                                    </Link>
+                                </div>
+                                <div>
+                                    {currentUser.photo && (
+                                        <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
+                                                                          src={require(`${currentUser.photo}`)}/></div>
+                                    )}
 
-                {currentUser && (
-                <div>
-                    <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>
-                    <div className="mt-2"><img className="" height={300} width={1050}
-                                               src={require('../images/ocean.jpg')}/>
-                    </div>
+                                </div>
+
+                                <div className="wd-bold wd-nudge-up">{currentUser.firstName} {currentUser.lastName}</div>
+                                <div className="wd-gray wd-nudge-up">@{currentUser.handle}</div>
+                                <img className="rounded-circle" height={48} src=""/>
+                                <div className="wd-nudge-up mb-3">{currentUser.bio}</div>
+                                <div className= "wd-nudge-up mt-2">
+                                    <i className="bi bi-geo-alt pe-2"></i>
+                                    {currentUser.location}
+                                    <i className="bi bi-calendar-heart ps-4 pe-2"></i>
+                                    Joined {currentUser.dateJoined}
+                                </div>
+                                <button className="btn btn-danger wd-nudge-up mt-3" onClick={() => {
+                                    dispatch(logoutThunk());
+                                    navigate("/news/login");
+                                }}>Logout</button>
+                                <div>
+                                    <h1>Likes</h1>
+                                    <ul className="list-group">
+                                        {likes.map((like) => (
+                                            <li className="list-group-item">
+                                                <Link to = {`http://localhost:3000/news/general-article/${like.articleId}`}><h4><i className="bi bi-heart-fill"></i> {like.articleId}</h4></Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </>
+
+                            :
+
+                            ""}
+                    </>
+
+                    :""}
 
 
-                    <div className="wd-button mt-2">
-                        <Link to={'/news/edit-profile'}>
-                            <button className="btn btn-primary rounded-4">Edit</button>
-                        </Link>
-                    </div>
-                    <div>
-                        {currentUser.photo && (
-                            <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                                              src={require(`${currentUser.photo}`)}/></div>
-                        )}
+                {/*{currentUser && (*/}
+                {/*<div>*/}
+                {/*    <h1>Welcome {currentUser.firstName} {currentUser.lastName}</h1>*/}
+                {/*    <div className="mt-2"><img className="" height={300} width={1050}*/}
+                {/*                               src={require('../images/ocean.jpg')}/>*/}
+                {/*    </div>*/}
 
-                    </div>
+                {/*    <div className="wd-button mt-2">*/}
+                {/*        <Link to={'/news/edit-profile'}>*/}
+                {/*            <button className="btn btn-primary rounded-4">Edit</button>*/}
+                {/*        </Link>*/}
+                {/*    </div>*/}
+                {/*    <div>*/}
+                {/*        {currentUser.photo && (*/}
+                {/*            <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}*/}
+                {/*                                              src={require(`${currentUser.photo}`)}/></div>*/}
+                {/*        )}*/}
 
+                {/*    </div>*/}
 
-                    <div className="wd-bold wd-nudge-up">{currentUser.firstName} {currentUser.lastName}</div>
-                    <div className="wd-gray wd-nudge-up">@{currentUser.handle}</div>
-                    <img className="rounded-circle" height={48} src=""/>
-                    <div className="wd-nudge-up mb-3">{currentUser.bio}</div>
-                    <div className= "wd-nudge-up mt-2">
-                        <i className="bi bi-geo-alt pe-2"></i>
-                        {currentUser.location}
-                        <i className="bi bi-calendar-heart ps-4 pe-2"></i>
-                        Joined {currentUser.dateJoined}
-                    </div>
-                    <button className="btn btn-danger wd-nudge-up mt-3" onClick={() => {
-                        dispatch(logoutThunk());
-                        navigate("/news/login");
-                    }}>Logout</button>
-                    <div>
-                        <h1>Likes</h1>
-                        <ul className="list-group">
-                            {likes.map((like) => (
-                                <li className="list-group-item">
-                                    <Link to = {`http://localhost:3000/news/general-article/${like.articleId}`}><h4><i className="bi bi-heart-fill"></i> {like.articleId}</h4></Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+                {/*    <div className="wd-bold wd-nudge-up">{currentUser.firstName} {currentUser.lastName}</div>*/}
+                {/*    <div className="wd-gray wd-nudge-up">@{currentUser.handle}</div>*/}
+                {/*    <img className="rounded-circle" height={48} src=""/>*/}
+                {/*    <div className="wd-nudge-up mb-3">{currentUser.bio}</div>*/}
+                {/*    <div className= "wd-nudge-up mt-2">*/}
+                {/*        <i className="bi bi-geo-alt pe-2"></i>*/}
+                {/*        {currentUser.location}*/}
+                {/*        <i className="bi bi-calendar-heart ps-4 pe-2"></i>*/}
+                {/*        Joined {currentUser.dateJoined}*/}
+                {/*    </div>*/}
+                {/*    <button className="btn btn-danger wd-nudge-up mt-3" onClick={() => {*/}
+                {/*        dispatch(logoutThunk());*/}
+                {/*        navigate("/news/login");*/}
+                {/*    }}>Logout</button>*/}
+                {/*    <div>*/}
+                {/*        <h1>Likes</h1>*/}
+                {/*        <ul className="list-group">*/}
+                {/*            {likes.map((like) => (*/}
+                {/*                <li className="list-group-item">*/}
+                {/*                    <Link to = {`http://localhost:3000/news/general-article/${like.articleId}`}><h4><i className="bi bi-heart-fill"></i> {like.articleId}</h4></Link>*/}
+                {/*                </li>*/}
+                {/*            ))}*/}
+                {/*        </ul>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
-                )}
+                {/*)}*/}
 
 
                 <div>
