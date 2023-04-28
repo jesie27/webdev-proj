@@ -16,8 +16,8 @@ const HomeComponent = () => {
 
     return (
         <div>
-            <img className="rounded-circle" height={160} width={800}
-            src={require('./nyt.jpg')}/>
+            <div className="mb-2"><img className="rounded-circle" height={160} width={800}
+            src={require('./nyt.jpg')}/></div>
             <div>
                 {currentUser && (
                     <div>

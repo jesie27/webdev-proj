@@ -21,9 +21,9 @@ function NytGeneralScreen() {
     );
     return (
         <div>
-            <img className="rounded-circle" height={140} width={700}
-                 src={require('./nyt.jpg')}/>
-            <div>Search for NYT articles using keywords</div>
+            <div className="mb-2"><img className="rounded-circle" height={140} width={700}
+                 src={require('./nyt.jpg')}/></div>
+            <div className="mb-2">Search for NYT articles using keywords</div>
 
             <input
                 className="form-control w-80"
@@ -31,7 +31,7 @@ function NytGeneralScreen() {
                 value={search}
                 onChange={(e)=> setSearch(e.target.value)}
             />
-            <button onClick={searchNyt} className="btn btn-primary">Search</button>
+            <div className="mt-3"><button onClick={searchNyt} className="btn btn-primary">Search</button></div>
             <ul className="list-group mt-3">
                 {results.docs && results.docs.map((docs) => (
                     <li className="list-group-item">
