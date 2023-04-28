@@ -96,10 +96,15 @@ if(profile) {
                             <button className="btn btn-primary rounded-4">Edit</button>
                         </Link>
                     </div>
+                    <div>
+                        {currentUser.photo && (
+                            <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
+                                                              src={require(`${currentUser.photo}`)}/></div>
+                        )}
+
+                    </div>
 
 
-                    <div className="wd-nudge-up"><img className="rounded-circle" height={150} width={150}
-                                                      src={require(`${currentUser.photo}`)}/></div>
                     <div className="wd-bold wd-nudge-up">{currentUser.firstName} {currentUser.lastName}</div>
                     <div className="wd-gray wd-nudge-up">@{currentUser.handle}</div>
                     <img className="rounded-circle" height={48} src=""/>

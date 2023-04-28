@@ -13,11 +13,13 @@ function RegisterScreen () {
     const [dateOfBirth, setDateOfBirth] = useState("");
     const [role, setRole] = useState("");
     const [location, setLocation] = useState("");
+    const [photo, setPhoto] = useState("");
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const toggleRegister = () => {
         try {
+
             dispatch(registerThunk({username, password, firstName, lastName, dateOfBirth, location, role}));
             navigate("/news/profile/");
             console.log(currentUser.firstName);
@@ -32,6 +34,7 @@ function RegisterScreen () {
     }
     return (
         <div>
+
             <h1>Register</h1>
             <div>
                 <label htmlFor="username" >Username</label>
@@ -109,20 +112,31 @@ function RegisterScreen () {
                     }}
                 />
             </div>
-            <div className="mb-2">Select your role</div>
+            <div className="mb-2"></div>
             <div>
-
+                <label htmlFor="role" >Select your role: READER, WRITER, ADMIN</label>
                 <input
-                type="radio" value="WRITER" id="radio-writer" name="radio-role"
+                    type="text"
+                    id="role"
+                    className = "form-control ms-2"
+                    value = {role}
+                    onChange={(e) => {
+                        setRole(e.target.value);
+                    }}
                 />
-                <label htmlFor="radio-writer" className="pe-4 ms-1">
-                    Writer</label>
-                <input
-                    type="radio" value="READER" id="radio-reader" name="radio-role"  onClick={onOptionChange}
 
-                />
-                <label htmlFor="radio-reader" className="ms-1">
-                    Reader</label>
+
+                {/*<input*/}
+                {/*type="radio" value="WRITER" id="radio-writer" name="radio-role"*/}
+                {/*/>*/}
+                {/*<label htmlFor="radio-writer" className="pe-4 ms-1">*/}
+                {/*    Writer</label>*/}
+                {/*<input*/}
+                {/*    type="radio" value="READER" id="radio-reader" name="radio-role"  onClick={onOptionChange}*/}
+
+                {/*/>*/}
+                {/*<label htmlFor="radio-reader" className="ms-1">*/}
+                {/*    Reader</label>*/}
             </div>
             <button onClick={toggleRegister} className="btn btn-primary mt-3">Register</button>
         </div>
